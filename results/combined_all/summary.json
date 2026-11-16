@@ -1,0 +1,45 @@
+{
+  "validate": {
+    "mean_mae": {
+      "constant": 5.945494,
+      "linear": 4.555238,
+      "GBM": 4.464996,
+      "all_data_c7": 4.987338,
+      "radar_night_resonance": 4.804031,
+      "combined": 4.049672,
+      "combined_free": 4.15571
+    },
+    "mean_constants": {
+      "all_data_c7:a": -12.252907,
+      "all_data_c7:b": 46.489867,
+      "radar_night_resonance:g0": 67.846032,
+      "radar_night_resonance:A": 1.726136,
+      "radar_night_resonance:f0": 3.51363,
+      "radar_night_resonance:k_h": -22.827067,
+      "radar_night_resonance:k_r": -3.771439,
+      "radar_night_resonance:k_dip": -0.114162,
+      "radar_night_resonance:k_F": -0.06127,
+      "combined:g0": 65.313823,
+      "combined:A": 1.269958,
+      "combined:f0": 3.576561,
+      "combined:k_h": -19.252748,
+      "combined:k_r": -2.005506,
+      "combined:k_dip": -0.12967,
+      "combined:k_F": -0.091223,
+      "combined:k": 19.386757,
+      "combined:s": 0.13419,
+      "combined_free:g0": 66.198955,
+      "combined_free:A": 1.242814,
+      "combined_free:f0": 3.57804,
+      "combined_free:k_h": -19.234381,
+      "combined_free:k_r": -1.881908,
+      "combined_free:k_dip": -0.128883,
+      "combined_free:k_F": -0.103971,
+      "combined_free:k": 17.580234,
+      "combined_free:m": 0.256912,
+      "combined_free:s": 0.197842,
+      "combined_free:p": 1.267901,
+      "combined_free:n": 0.811637
+    }
+  }
+}

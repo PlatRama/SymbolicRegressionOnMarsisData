@@ -1,0 +1,16 @@
+{
+  "search": {
+    "test_fold": 9,
+    "best_on_test": {
+      "complexity": 12,
+      "mae_test": 4.149287,
+      "equation": "((-0.25472334 / (freq_mhz - 4.048097)) - exp(cos_sza + log10_altitude_km)) + 26.345562"
+    },
+    "baseline_mae_test": {
+      "constant": 5.725011,
+      "linear": 4.523573,
+      "GBM": 4.197153
+    },
+    "copied_from": "results_ita/all_data_long (PySR not rerun)"
+  }
+}

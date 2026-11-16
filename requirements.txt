@@ -1,0 +1,13 @@
+# Dati e calcolo
+numpy>=1.24           # calcolo numerico
+pandas>=2.0           # tabelle
+pyarrow>=14           # lettura veloce del CSV e formato Parquet
+scipy>=1.10           # stima delle costanti delle formule (least_squares)
+sympy>=1.12           # formule scritte come testo (formulas.toml)
+
+# Modelli
+pysr>=2.0             # regressione simbolica (installa Julia al primo avvio)
+scikit-learn>=1.3     # modelli di confronto (lineare, gradient boosting)
+
+# Figure
+matplotlib>=3.7

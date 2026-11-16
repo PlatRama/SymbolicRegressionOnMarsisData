@@ -1,0 +1,95 @@
+{
+  "name": "attenuation",
+  "description": "Day: ionospheric attenuation law (echo expected at night - measured echo)",
+  "target": "attenuation",
+  "freqs": "all",
+  "period": "lit",
+  "sun_margin": 0.0,
+  "cos_sza_min": -0.2,
+  "exclude_anomalies_of": "night_4mhz",
+  "features": [
+    "cos_sza",
+    "f107_at_mars",
+    "freq_mhz"
+  ],
+  "n_folds": 10,
+  "fold_scheme": "chronological",
+  "search_test_fold": 9,
+  "pysr_sample": 12000,
+  "pysr_balance_by": "freq_mhz",
+  "pysr_iterations": 1000,
+  "pysr_maxsize": 20,
+  "pysr_seeds": [
+    0,
+    1,
+    2
+  ],
+  "pysr_timeout": 0,
+  "pysr_binary": [
+    "+",
+    "-",
+    "*",
+    "/",
+    "^"
+  ],
+  "pysr_unary": [
+    "sqrt",
+    "square",
+    "exp",
+    "log10"
+  ],
+  "pysr_nested": {
+    "^": {
+      "^": 0,
+      "exp": 0
+    },
+    "exp": {
+      "exp": 0,
+      "^": 0,
+      "log10": 0
+    },
+    "log10": {
+      "log10": 0,
+      "exp": 0
+    }
+  },
+  "pysr_constraints": {
+    "^": [
+      -1,
+      1
+    ]
+  },
+  "formulas": [
+    "attenuation_c7",
+    "attenuation_pysr",
+    "attenuation_free",
+    "attenuation_chapman"
+  ],
+  "baselines": [
+    "constant",
+    "linear",
+    "GBM"
+  ],
+  "train_sample": 500000,
+  "group_by": "freq_mhz",
+  "residual_model": null,
+  "anomaly_formula": null,
+  "anomaly_threshold": -8.0,
+  "anomaly_max_iter": 10,
+  "anomaly_thresholds": [
+    -6,
+    -8,
+    -10,
+    -12
+  ],
+  "reference_formula": "radar_night_resonance",
+  "reference_experiment": "night_allfreq",
+  "exponent_formula": "attenuation_free",
+  "bootstrap": 40,
+  "bootstrap_sample": 150000,
+  "theory": {
+    "m": 0.5,
+    "p": 0.5,
+    "n": 2.0
+  }
+}

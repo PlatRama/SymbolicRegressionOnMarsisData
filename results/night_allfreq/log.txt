@@ -1,0 +1,164 @@
+
+=== 2026-11-15 13:29  night_allfreq  explore ===
+Night, all frequencies, no anomalous orbits: radar law and frequency gain
+Selected rows: 1,647,781 of 4,230,657 (38.9%), orbits: 297
+Rows per frequency: {1.8: 22242, 3.0: 612955, 4.0: 748090, 5.0: 264494}
+Target (peak_corrected_echo_power): mean 18.08 dB, std 5.53 dB
+
+Observing conditions in the test set of each fold
+      start_year         period  orbits    rows  pct_day  sun_elev  F10.7  altitude_km  target_dB  rows_1.8MHz  rows_3MHz  rows_4MHz  rows_5MHz
+fold                                                                                                                                           
+0         2006.1  2006.1-2012.3      30  149897      0.0     -14.8   89.8        574.6       17.1      12640.0    61167.0      65869      10221
+1         2012.3  2012.3-2012.4      30  168251      0.0     -18.4  126.3        490.0       18.8          0.0    76460.0      76456      15335
+2         2012.4  2012.4-2012.4      30  169491      0.0     -18.9  125.2        393.3       19.1       9602.0    79928.0      68402      11559
+3         2012.4  2012.4-2012.5      30  143685      0.0     -16.7  125.3        342.2       22.4          0.0    73801.0      63458       6426
+4         2012.5  2012.5-2014.0      30  166645      0.0     -16.1  139.3        574.1       15.2          0.0    87957.0      72288       6400
+5         2014.0  2014.0-2014.1      30  170626      0.0     -19.9  151.2        482.9       15.4          0.0    86970.0      74735       8921
+6         2014.1  2014.1-2014.1      30  174676      0.0     -25.6  161.4        381.4       18.7          0.0    63278.0      79398      32000
+7         2014.1  2014.1-2015.7      29  161397      0.0     -25.3  146.3        411.0       17.8          0.0    49610.0      79787      32000
+8         2015.7  2015.7-2019.3      29  159594      0.0     -20.5   95.0        446.1       19.3          0.0    33784.0      74897      50913
+9         2019.3  2019.3-2019.4      29  183519      0.0     -17.1   72.5        499.5       17.6          0.0        0.0      92800      90719
+saved: results/night_allfreq/fold.csv
+saved: results/night_allfreq/explore_orbits.csv
+
+=== 2026-11-15 13:29  night_allfreq  validate ===
+Night, all frequencies, no anomalous orbits: radar law and frequency gain
+Rows: 1,647,781, folds: 10 (chronological)
+
+constant  (columns: ['log10_altitude_km', 'roughness_over_lambda', 'slope', 'f107_at_mars', 'cos_sza', 'sin_ls', 'cos_ls', 'dipole_dev', 'freq_mhz'])
+  fold 0: MAE 4.052  (0 s)
+  fold 1: MAE 4.321  (0 s)
+  fold 2: MAE 3.929  (0 s)
+  fold 3: MAE 5.238  (0 s)
+  fold 4: MAE 5.100  (0 s)
+  fold 5: MAE 5.305  (0 s)
+  fold 6: MAE 3.818  (0 s)
+  fold 7: MAE 4.750  (0 s)
+  fold 8: MAE 5.048  (0 s)
+  fold 9: MAE 4.193  (0 s)
+
+linear  (columns: ['log10_altitude_km', 'roughness_over_lambda', 'slope', 'f107_at_mars', 'cos_sza', 'sin_ls', 'cos_ls', 'dipole_dev', 'freq_mhz'])
+  fold 0: MAE 3.050  (0 s)
+  fold 1: MAE 4.017  (0 s)
+  fold 2: MAE 3.936  (0 s)
+  fold 3: MAE 3.675  (0 s)
+  fold 4: MAE 4.047  (0 s)
+  fold 5: MAE 3.574  (0 s)
+  fold 6: MAE 3.523  (0 s)
+  fold 7: MAE 4.253  (0 s)
+  fold 8: MAE 4.098  (0 s)
+  fold 9: MAE 3.908  (0 s)
+
+GBM  (columns: ['log10_altitude_km', 'roughness_over_lambda', 'slope', 'f107_at_mars', 'cos_sza', 'sin_ls', 'cos_ls', 'dipole_dev', 'freq_mhz'])
+  fold 0: MAE 2.715  (4 s)
+  fold 1: MAE 3.653  (4 s)
+  fold 2: MAE 3.641  (4 s)
+  fold 3: MAE 4.210  (3 s)
+  fold 4: MAE 5.551  (4 s)
+  fold 5: MAE 3.977  (4 s)
+  fold 6: MAE 3.408  (4 s)
+  fold 7: MAE 4.260  (4 s)
+  fold 8: MAE 2.689  (4 s)
+  fold 9: MAE 2.314  (4 s)
+
+night_allfreq_c14  (columns: ['freq_mhz', 'log10_altitude_km', 'roughness_over_lambda'])
+  fold 0: MAE 2.713  (0 s)
+  fold 1: MAE 3.512  (0 s)
+  fold 2: MAE 3.366  (0 s)
+  fold 3: MAE 3.308  (0 s)
+  fold 4: MAE 3.972  (0 s)
+  fold 5: MAE 4.583  (0 s)
+  fold 6: MAE 2.826  (0 s)
+  fold 7: MAE 4.097  (0 s)
+  fold 8: MAE 2.866  (0 s)
+  fold 9: MAE 2.065  (0 s)
+
+night_allfreq_offset  (columns: ['log10_altitude_km', 'roughness_over_lambda', 'freq_mhz'])
+  fold 0: MAE 2.783  (1 s)
+  fold 1: MAE 3.537  (1 s)
+  fold 2: MAE 3.451  (1 s)
+  fold 3: MAE 3.121  (1 s)
+  fold 4: MAE 3.851  (1 s)
+  fold 5: MAE 4.462  (1 s)
+  fold 6: MAE 2.907  (1 s)
+  fold 7: MAE 4.102  (1 s)
+  fold 8: MAE 2.671  (1 s)
+  fold 9: MAE 1.844  (1 s)
+
+radar_night_resonance  (columns: ['dipole_dev', 'f107_at_mars', 'freq_mhz', 'log10_altitude_km', 'roughness_over_lambda'])
+  fold 0: MAE 2.473  (0 s)
+  fold 1: MAE 3.303  (0 s)
+  fold 2: MAE 3.300  (0 s)
+  fold 3: MAE 3.015  (0 s)
+  fold 4: MAE 3.358  (0 s)
+  fold 5: MAE 3.349  (0 s)
+  fold 6: MAE 2.779  (0 s)
+  fold 7: MAE 3.607  (0 s)
+  fold 8: MAE 2.514  (0 s)
+  fold 9: MAE 1.930  (0 s)
+
+radar_night  (columns: ['dipole_dev', 'f107_at_mars', 'log10_altitude_km', 'roughness_over_lambda', 'freq_mhz'])
+  fold 0: MAE 2.606  (2 s)
+  fold 1: MAE 3.306  (2 s)
+  fold 2: MAE 3.369  (2 s)
+  fold 3: MAE 3.012  (2 s)
+  fold 4: MAE 3.363  (2 s)
+  fold 5: MAE 3.348  (2 s)
+  fold 6: MAE 2.780  (2 s)
+  fold 7: MAE 3.609  (2 s)
+  fold 8: MAE 2.509  (2 s)
+  fold 9: MAE 1.933  (2 s)
+
+MAE per fold [dB]
+model  constant  linear   GBM  night_allfreq_c14  night_allfreq_offset  radar_night_resonance  radar_night
+fold                                                                                                      
+0          4.05    3.05  2.72               2.71                  2.78                   2.47         2.61
+1          4.32    4.02  3.65               3.51                  3.54                   3.30         3.31
+2          3.93    3.94  3.64               3.37                  3.45                   3.30         3.37
+3          5.24    3.68  4.21               3.31                  3.12                   3.01         3.01
+4          5.10    4.05  5.55               3.97                  3.85                   3.36         3.36
+5          5.30    3.57  3.98               4.58                  4.46                   3.35         3.35
+6          3.82    3.52  3.41               2.83                  2.91                   2.78         2.78
+7          4.75    4.25  4.26               4.10                  4.10                   3.61         3.61
+8          5.05    4.10  2.69               2.87                  2.67                   2.51         2.51
+9          4.19    3.91  2.31               2.07                  1.84                   1.93         1.93
+
+Mean MAE over the folds [dB]
+                        mae  mae_freq_mhz=1.8  mae_freq_mhz=3  mae_freq_mhz=4  mae_freq_mhz=5
+model                                                                                        
+constant               4.58              4.15            4.70            4.62            4.03
+linear                 3.81              5.34            3.76            3.82            3.58
+GBM                    3.64              4.72            4.28            3.42            2.83
+night_allfreq_c14      3.33              2.22            3.89            3.21            2.47
+night_allfreq_offset   3.27              3.67            3.82            3.14            2.41
+radar_night_resonance  2.96              2.66            3.44            2.84            2.13
+radar_night            2.98              4.06            3.44            2.84            2.13
+saved: results/night_allfreq/validate.csv
+
+Formula constants fitted in the folds
+                                   mean    std     min     max
+model                 parameter                               
+night_allfreq_c14     a           7.497  0.024   7.479   7.558
+                      b           1.180  0.061   1.099   1.283
+                      f0          3.578  0.006   3.567   3.585
+night_allfreq_offset  a           8.027  0.042   7.957   8.084
+                      G[1.8]     -2.357  0.915  -4.732  -1.376
+                      G[3]        0.510  0.362   0.050   1.233
+                      G[4]        3.377  0.306   3.021   3.930
+                      G[5]       -3.432  0.311  -3.818  -3.000
+radar_night_resonance g0         76.145  1.654  74.205  78.904
+                      A           1.423  0.029   1.374   1.465
+                      f0          3.558  0.002   3.555   3.562
+                      k_h       -24.499  0.637 -25.575 -23.747
+                      k_r        -2.905  0.064  -3.007  -2.798
+                      k_dip      -0.181  0.011  -0.198  -0.164
+                      k_F        -0.041  0.004  -0.046  -0.035
+radar_night           k_h       -24.595  0.630 -25.695 -23.823
+                      k_r        -2.907  0.064  -3.014  -2.804
+                      k_dip      -0.180  0.011  -0.198  -0.163
+                      k_F        -0.041  0.004  -0.046  -0.034
+                      G[1.8]     77.481  1.549  75.501  80.709
+                      G[3]       80.946  1.644  78.953  83.771
+                      G[4]       83.668  1.661  81.571  86.469
+                      G[5]       77.019  1.663  75.007  79.830
+saved: results/night_allfreq/validate_params.csv

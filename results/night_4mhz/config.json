@@ -1,0 +1,88 @@
+{
+  "name": "night_4mhz",
+  "description": "Night at 4 MHz (all orbits): radar law and anomalous orbits",
+  "target": "peak_corrected_echo_power",
+  "freqs": [
+    4.0
+  ],
+  "period": "night",
+  "sun_margin": 10,
+  "cos_sza_min": -0.2,
+  "exclude_anomalies_of": null,
+  "features": [
+    "log10_altitude_km",
+    "roughness_over_lambda",
+    "slope",
+    "f107_at_mars",
+    "cos_sza",
+    "sin_ls",
+    "cos_ls",
+    "dipole_dev"
+  ],
+  "n_folds": 10,
+  "fold_scheme": "chronological",
+  "search_test_fold": 9,
+  "pysr_sample": 10000,
+  "pysr_balance_by": null,
+  "pysr_iterations": 1000,
+  "pysr_maxsize": 25,
+  "pysr_seeds": [
+    0,
+    1,
+    2
+  ],
+  "pysr_timeout": 0,
+  "pysr_binary": [
+    "+",
+    "-",
+    "*",
+    "/"
+  ],
+  "pysr_unary": [
+    "log10",
+    "sqrt",
+    "square",
+    "exp"
+  ],
+  "pysr_nested": {
+    "log10": {
+      "log10": 0,
+      "exp": 0
+    },
+    "exp": {
+      "exp": 0,
+      "log10": 0
+    }
+  },
+  "pysr_constraints": null,
+  "formulas": [
+    "night_4mhz_c5",
+    "night_4mhz_c6",
+    "night_4mhz_c7",
+    "night_4mhz_c10",
+    "radar_4mhz_f107"
+  ],
+  "baselines": [
+    "constant",
+    "linear",
+    "GBM"
+  ],
+  "train_sample": 500000,
+  "group_by": null,
+  "residual_model": "radar_4mhz_f107",
+  "anomaly_formula": "radar_4mhz_f107",
+  "anomaly_threshold": -8.0,
+  "anomaly_max_iter": 10,
+  "anomaly_thresholds": [
+    -6,
+    -8,
+    -10,
+    -12
+  ],
+  "reference_formula": null,
+  "reference_experiment": null,
+  "exponent_formula": null,
+  "bootstrap": 40,
+  "bootstrap_sample": 150000,
+  "theory": {}
+}

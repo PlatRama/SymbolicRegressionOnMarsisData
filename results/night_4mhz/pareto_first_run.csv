@@ -1,0 +1,21 @@
+complexity,mae_test,mae_train,equation
+1,3.5830641975898367,5.588175455376093,19.293678
+3,3.309788599248831,5.426327230125558,51.49646 / log10_altitude_km
+4,3.3162435997016413,5.312882635627447,273.32248 / exp(log10_altitude_km)
+5,2.9514557779344535,5.264099649422287,53.302567 / (log10_altitude_km + roughness_over_lambda)
+6,2.3890571376457035,5.041801381072416,exp(8.053842 / (roughness_over_lambda + log10_altitude_km))
+7,2.014540288632804,4.982391234564645,exp(8.432623 / (sqrt(roughness_over_lambda) + log10_altitude_km))
+8,2.010111040376599,4.947514773403083,exp(9.09706 / (sqrt(sqrt(roughness_over_lambda)) + log10_altitude_km))
+9,3.2554514991164836,4.923664650824752,exp((8.175251 / log10_altitude_km) - roughness_over_lambda) - sqrt(dipole_dev)
+10,2.957146391665866,4.859427910299634,exp((8.123889 / log10_altitude_km) - roughness_over_lambda) - (dipole_dev / 4.8356476)
+12,2.9443508378621748,4.845116579282537,(exp((8.123889 / log10_altitude_km) - roughness_over_lambda) - (dipole_dev / 4.8356476)) + roughness_over_lambda
+13,3.0123666722765434,4.785710216789203,(exp((7.837723 - roughness_over_lambda) / log10_altitude_km) - log10(roughness_over_lambda)) - (dipole_dev / 4.588243)
+14,2.663668026523213,4.711660468264682,(dipole_dev * -0.19907387) + (((20.401669 - (log10_altitude_km * 6.069108)) - log10(roughness_over_lambda)) * 3.4309294)
+16,2.291067794338223,4.716278657840244,((dipole_dev * cos_sza) * 0.5712203) + (((17.183432 - (log10_altitude_km * 5.1347356)) - log10(roughness_over_lambda)) * 3.9487624)
+17,2.35629911155657,4.710305226430429,(((16.752794 - (log10_altitude_km * 4.892667)) - log10(roughness_over_lambda)) * 3.8734796) + ((dipole_dev - log10(dipole_dev)) * -0.22303966)
+18,2.274023012221161,4.707273627678792,((cos_sza * (dipole_dev - slope)) * 0.5712203) + (((17.183432 - (log10_altitude_km * 5.1347356)) - log10(roughness_over_lambda)) * 3.9487624)
+19,2.1919614913534424,4.709079027683118,(((16.752794 - (log10_altitude_km * 4.892667)) - log10(roughness_over_lambda)) * 3.8734796) + ((dipole_dev - log10(dipole_dev)) * (0.6625991 * cos_sza))
+20,2.222858472875246,4.707824944016698,(((16.752794 - log10(roughness_over_lambda)) - (log10_altitude_km * 4.892667)) * 3.8734796) + ((dipole_dev - log10(dipole_dev)) * (square(0.83554435) * cos_sza))
+21,2.24532267397865,4.6463186850488425,(((16.928387 - log10(roughness_over_lambda)) - (log10_altitude_km * 4.985329)) * 3.928103) + ((exp(square(square(cos_ls + -0.44522765))) + dipole_dev) * -0.1633263)
+22,2.4064416763534915,4.634785441440249,((exp(square((1.0998849 - cos_ls) * cos_ls)) + dipole_dev) * -0.18068343) + (((16.93165 - (log10_altitude_km * 4.9911675)) - log10(roughness_over_lambda)) * 3.900438)
+24,2.1195526144817234,4.633319782708746,(((17.436495 - log10(roughness_over_lambda)) - (log10_altitude_km * 5.191676)) * 3.9008539) + (((exp(square(square(cos_ls) - cos_ls)) + dipole_dev) * -0.18939918) + square(cos_ls))

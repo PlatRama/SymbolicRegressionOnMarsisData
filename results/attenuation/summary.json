@@ -1,0 +1,110 @@
+{
+  "search": {
+    "test_fold": 9,
+    "best_on_test": {
+      "complexity": 13,
+      "mae_test": 4.122507,
+      "equation": "((f107_at_mars * ((cos_sza + (f107_at_mars ^ -0.3887672)) / 0.60081273)) / freq_mhz) - 1.0054603"
+    },
+    "baseline_mae_test": {
+      "constant": 4.773992,
+      "linear": 4.189899,
+      "GBM": 4.361395
+    },
+    "copied_from": "results_ita/attenuation (PySR not rerun)"
+  },
+  "attenuation": {
+    "reference_formula": "radar_night_resonance",
+    "reference_params": {
+      "g0": 75.853121,
+      "A": 1.419187,
+      "f0": 3.557804,
+      "k_h": -24.393137,
+      "k_r": -2.922093,
+      "k_dip": -0.1794,
+      "k_F": -0.041421
+    },
+    "night_mean_dB": {
+      "1.8": -0.82586,
+      "3.0": 0.110143,
+      "4.0": 0.068561,
+      "5.0": 0.290319
+    },
+    "median_ratio_4_5": 1.263634,
+    "lit_rows": {
+      "1.8": 6464,
+      "3.0": 194416,
+      "4.0": 1268368,
+      "5.0": 955558
+    }
+  },
+  "validate": {
+    "mean_mae": {
+      "constant": 4.437849,
+      "linear": 3.76365,
+      "GBM": 4.124754,
+      "attenuation_c7": 3.719178,
+      "attenuation_pysr": 3.717255,
+      "attenuation_free": 3.768384,
+      "attenuation_chapman": 3.751497
+    },
+    "mean_constants": {
+      "attenuation_c7:a": 64.596411,
+      "attenuation_c7:b": 10.531384,
+      "attenuation_pysr:k": 17.212496,
+      "attenuation_pysr:s": 0.168356,
+      "attenuation_free:k": 17.737507,
+      "attenuation_free:m": 0.616763,
+      "attenuation_free:s": 0.169842,
+      "attenuation_free:p": 1.056682,
+      "attenuation_free:n": 1.176312,
+      "attenuation_chapman:k": 13.590261,
+      "attenuation_chapman:s": 0.059467
+    }
+  },
+  "exponents": {
+    "formula": "attenuation_free",
+    "params": {
+      "k": {
+        "estimate": 17.395928,
+        "ci95": [
+          15.18531,
+          20.453441
+        ],
+        "theory": NaN
+      },
+      "m": {
+        "estimate": 0.647296,
+        "ci95": [
+          0.169214,
+          1.181002
+        ],
+        "theory": 0.5
+      },
+      "s": {
+        "estimate": 0.159976,
+        "ci95": [
+          0.111828,
+          0.240528
+        ],
+        "theory": NaN
+      },
+      "p": {
+        "estimate": 1.005493,
+        "ci95": [
+          0.853279,
+          1.395908
+        ],
+        "theory": 0.5
+      },
+      "n": {
+        "estimate": 1.124961,
+        "ci95": [
+          0.985482,
+          1.243775
+        ],
+        "theory": 2.0
+      }
+    }
+  }
+}

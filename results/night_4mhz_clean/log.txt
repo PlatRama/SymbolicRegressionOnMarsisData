@@ -1,0 +1,141 @@
+
+=== 2026-11-15 13:28  night_4mhz_clean  validate ===
+Night at 4 MHz without anomalous orbits
+Rows: 748,090, folds: 10 (chronological)
+
+constant  (columns: ['log10_altitude_km', 'roughness_over_lambda', 'slope', 'f107_at_mars', 'cos_sza', 'sin_ls', 'cos_ls', 'dipole_dev'])
+  fold 0: MAE 3.747  (0 s)
+  fold 1: MAE 3.698  (0 s)
+  fold 2: MAE 3.634  (0 s)
+  fold 3: MAE 4.546  (0 s)
+  fold 4: MAE 5.242  (0 s)
+  fold 5: MAE 5.458  (0 s)
+  fold 6: MAE 3.598  (0 s)
+  fold 7: MAE 4.477  (0 s)
+  fold 8: MAE 4.617  (0 s)
+  fold 9: MAE 2.878  (0 s)
+
+linear  (columns: ['log10_altitude_km', 'roughness_over_lambda', 'slope', 'f107_at_mars', 'cos_sza', 'sin_ls', 'cos_ls', 'dipole_dev'])
+  fold 0: MAE 2.579  (0 s)
+  fold 1: MAE 3.400  (0 s)
+  fold 2: MAE 3.384  (0 s)
+  fold 3: MAE 2.857  (0 s)
+  fold 4: MAE 3.493  (0 s)
+  fold 5: MAE 3.201  (0 s)
+  fold 6: MAE 2.964  (0 s)
+  fold 7: MAE 3.445  (0 s)
+  fold 8: MAE 2.917  (0 s)
+  fold 9: MAE 2.539  (0 s)
+
+GBM  (columns: ['log10_altitude_km', 'roughness_over_lambda', 'slope', 'f107_at_mars', 'cos_sza', 'sin_ls', 'cos_ls', 'dipole_dev'])
+  fold 0: MAE 2.657  (3 s)
+  fold 1: MAE 2.926  (3 s)
+  fold 2: MAE 3.352  (3 s)
+  fold 3: MAE 3.536  (3 s)
+  fold 4: MAE 4.795  (3 s)
+  fold 5: MAE 3.633  (3 s)
+  fold 6: MAE 3.133  (3 s)
+  fold 7: MAE 3.705  (3 s)
+  fold 8: MAE 2.733  (3 s)
+  fold 9: MAE 1.982  (3 s)
+
+night_4mhz_c5  (columns: ['log10_altitude_km', 'roughness_over_lambda'])
+  fold 0: MAE 3.188  (0 s)
+  fold 1: MAE 3.322  (0 s)
+  fold 2: MAE 3.408  (0 s)
+  fold 3: MAE 3.688  (0 s)
+  fold 4: MAE 4.357  (0 s)
+  fold 5: MAE 5.057  (0 s)
+  fold 6: MAE 3.201  (0 s)
+  fold 7: MAE 4.033  (0 s)
+  fold 8: MAE 3.862  (0 s)
+  fold 9: MAE 2.357  (0 s)
+
+night_4mhz_c6  (columns: ['log10_altitude_km', 'roughness_over_lambda'])
+  fold 0: MAE 2.841  (0 s)
+  fold 1: MAE 3.256  (0 s)
+  fold 2: MAE 3.411  (0 s)
+  fold 3: MAE 2.986  (0 s)
+  fold 4: MAE 3.636  (0 s)
+  fold 5: MAE 4.522  (0 s)
+  fold 6: MAE 3.184  (0 s)
+  fold 7: MAE 3.736  (0 s)
+  fold 8: MAE 2.988  (0 s)
+  fold 9: MAE 1.987  (0 s)
+
+night_4mhz_c7  (columns: ['log10_altitude_km', 'roughness_over_lambda'])
+  fold 0: MAE 2.700  (0 s)
+  fold 1: MAE 3.116  (0 s)
+  fold 2: MAE 3.292  (0 s)
+  fold 3: MAE 3.116  (0 s)
+  fold 4: MAE 3.699  (0 s)
+  fold 5: MAE 4.636  (0 s)
+  fold 6: MAE 2.898  (0 s)
+  fold 7: MAE 3.761  (0 s)
+  fold 8: MAE 2.947  (0 s)
+  fold 9: MAE 1.946  (0 s)
+
+night_4mhz_c10  (columns: ['dipole_dev', 'f107_at_mars', 'log10_altitude_km', 'roughness_over_lambda'])
+  fold 0: MAE 3.021  (0 s)
+  fold 1: MAE 3.211  (0 s)
+  fold 2: MAE 3.475  (0 s)
+  fold 3: MAE 3.557  (0 s)
+  fold 4: MAE 3.105  (0 s)
+  fold 5: MAE 3.686  (0 s)
+  fold 6: MAE 3.334  (0 s)
+  fold 7: MAE 3.939  (0 s)
+  fold 8: MAE 3.010  (0 s)
+  fold 9: MAE 2.319  (0 s)
+
+radar_4mhz_f107  (columns: ['dipole_dev', 'f107_at_mars', 'log10_altitude_km', 'roughness_over_lambda'])
+  fold 0: MAE 2.306  (0 s)
+  fold 1: MAE 2.978  (0 s)
+  fold 2: MAE 3.217  (0 s)
+  fold 3: MAE 2.711  (0 s)
+  fold 4: MAE 3.170  (0 s)
+  fold 5: MAE 3.287  (0 s)
+  fold 6: MAE 2.772  (0 s)
+  fold 7: MAE 3.244  (0 s)
+  fold 8: MAE 2.614  (0 s)
+  fold 9: MAE 2.094  (0 s)
+
+MAE per fold [dB]
+model  constant  linear   GBM  night_4mhz_c5  night_4mhz_c6  night_4mhz_c7  night_4mhz_c10  radar_4mhz_f107
+fold                                                                                                       
+0          3.75    2.58  2.66           3.19           2.84           2.70            3.02             2.31
+1          3.70    3.40  2.93           3.32           3.26           3.12            3.21             2.98
+2          3.63    3.38  3.35           3.41           3.41           3.29            3.48             3.22
+3          4.55    2.86  3.54           3.69           2.99           3.12            3.56             2.71
+4          5.24    3.49  4.79           4.36           3.64           3.70            3.10             3.17
+5          5.46    3.20  3.63           5.06           4.52           4.64            3.69             3.29
+6          3.60    2.96  3.13           3.20           3.18           2.90            3.33             2.77
+7          4.48    3.45  3.71           4.03           3.74           3.76            3.94             3.24
+8          4.62    2.92  2.73           3.86           2.99           2.95            3.01             2.61
+9          2.88    2.54  1.98           2.36           1.99           1.95            2.32             2.09
+
+Mean MAE over the folds [dB]
+                  mae
+model                
+constant         4.19
+linear           3.08
+GBM              3.25
+night_4mhz_c5    3.65
+night_4mhz_c6    3.25
+night_4mhz_c7    3.21
+night_4mhz_c10   3.27
+radar_4mhz_f107  2.84
+saved: results/night_4mhz_clean/validate.csv
+
+Formula constants fitted in the folds
+                              mean    std      min      max
+model           parameter                                  
+night_4mhz_c5   a           56.760  0.463   56.082   57.421
+night_4mhz_c6   a          311.779  1.536  309.613  314.241
+night_4mhz_c7   a          167.264  0.737  166.080  168.438
+night_4mhz_c10  a          200.593  0.909  199.329  201.982
+radar_4mhz_f107 a0          85.161  1.560   83.004   87.825
+                k_h        -25.175  0.556  -26.209  -24.582
+                k_r         -2.968  0.053   -3.057   -2.882
+                k_dip       -0.188  0.010   -0.207   -0.172
+                k_F         -0.042  0.006   -0.049   -0.027
+saved: results/night_4mhz_clean/validate_params.csv

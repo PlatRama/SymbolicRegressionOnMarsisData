@@ -1,0 +1,315 @@
+
+=== 2026-11-15 12:40  night_4mhz  anomalies ===
+Night at 4 MHz (all orbits): radar law and anomalous orbits
+Reference formula: radar_4mhz_f107  (a0 + k_h*log10_altitude_km + k_r*log10(roughness_over_lambda) + k_dip*dipole_dev + k_F*f107_at_mars)
+Threshold: mean residual of the orbit < -8.0 dB
+Iterative search:
+  iteration 0: 44 anomalous orbits
+  iteration 1: 46 anomalous orbits
+  iteration 2: 47 anomalous orbits
+  iteration 3: 47 anomalous orbits
+Constants fitted on the normal orbits: a0 = 84.855, k_h = -25.056, k_r = -2.969, k_dip = -0.186, k_F = -0.042
+
+Anomalous orbits: 47 of 339 (13.9%), 13.7% of rows
+
+Orbit means: normal and anomalous orbits
+                              normal  anomalous  difference
+year                         2013.72    2013.45       -0.27
+peak_corrected_echo_power      20.16       6.98      -13.18
+median_corrected_echo_power    -2.40      -4.23       -1.83
+snr                            22.56      11.22      -11.34
+F10_7_index                   122.94     147.68       24.74
+f107_at_mars                   46.14      56.20       10.06
+Sun_elevation_angle           -18.85     -17.59        1.26
+altitude_km                   458.84     390.99      -67.85
+roughness_over_lambda           0.09       0.10        0.02
+dipole_dev                      4.38       2.63       -1.75
+bias                           -0.07     -14.61      -14.54
+Spearman correlation (per orbit) between echo residual and noise floor: 0.44
+
+Threshold sensitivity
+   threshold_dB  orbits  pct_orbits  pct_rows
+0            -6      51        15.0      15.0
+1            -8      47        13.9      13.7
+2           -10      42        12.4      12.2
+3           -12      35        10.3      10.3
+
+The anomalous orbits form 10 episodes
+   first_orbit  last_orbit  orbits     year  bias_dB
+0      10671.0     10678.0       5  2012.38   -15.08
+1      10770.0     10781.0       5  2012.46   -13.30
+2      10845.0     10880.0       7  2012.53   -16.94
+3      10911.0     10911.0       1  2012.57   -16.22
+4      11035.0     11049.0       3  2012.67   -11.53
+5      12690.0     12704.0       3  2013.99   -12.62
+6      12728.0     12759.0      12  2014.03   -13.64
+7      12905.0     12928.0       8  2014.17   -15.38
+8      13043.0     13043.0       1  2014.27    -9.69
+9      15022.0     15029.0       2  2015.85   -20.61
+saved: results/night_4mhz/anomalous_orbits.csv
+saved: results/night_4mhz/orbit_summary.csv
+saved: results/night_4mhz/anomaly_thresholds.csv
+saved: results/night_4mhz/anomaly_episodes.csv
+figure: plots/05_night_4mhz_anomalies.png
+
+=== 2026-11-15 13:26  night_4mhz  explore ===
+Night at 4 MHz (all orbits): radar law and anomalous orbits
+Selected rows: 866,829 of 4,230,657 (20.5%), orbits: 339
+Rows per frequency: {4.0: 866829}
+Target (peak_corrected_echo_power): mean 18.44 dB, std 6.69 dB
+
+Observing conditions in the test set of each fold
+      start_year         period  orbits    rows  pct_day  sun_elev  F10.7  altitude_km  target_dB  rows_4MHz
+fold                                                                                                        
+0         2006.1  2006.1-2012.3      34   76233      0.0     -15.5   94.7        574.0       19.1      76233
+1         2012.3  2012.3-2012.4      34   85530      0.0     -17.8  128.1        462.5       18.3      85530
+2         2012.4  2012.4-2012.5      34   84262      0.0     -17.8  129.1        380.9       21.8      84262
+3         2012.5  2012.5-2012.5      34   68743      0.0     -18.1  125.0        338.6       17.5      68743
+4         2012.6  2012.6-2014.0      34   84288      0.0     -16.4  139.9        572.6       15.4      84288
+5         2014.0  2014.0-2014.1      34   86092      0.0     -17.4  156.2        479.8       11.8      86092
+6         2014.1  2014.1-2014.1      34   88384      0.0     -23.9  157.5        388.4       20.7      88384
+7         2014.1  2014.1-2014.3      34   94214      0.0     -26.9  155.8        350.8       18.0      94214
+8         2014.3  2014.3-2019.2      34   95602      0.0     -19.8  103.6        472.3       19.2      95602
+9         2019.2  2019.2-2019.4      33  103481      0.0     -16.6   72.6        483.9       21.7     103481
+saved: results/night_4mhz/fold.csv
+saved: results/night_4mhz/explore_orbits.csv
+
+=== 2026-11-15 13:26  night_4mhz  validate ===
+Night at 4 MHz (all orbits): radar law and anomalous orbits
+Rows: 866,829, folds: 10 (chronological)
+
+constant  (columns: ['log10_altitude_km', 'roughness_over_lambda', 'slope', 'f107_at_mars', 'cos_sza', 'sin_ls', 'cos_ls', 'dipole_dev'])
+  fold 0: MAE 3.460  (0 s)
+  fold 1: MAE 5.343  (0 s)
+  fold 2: MAE 4.176  (0 s)
+  fold 3: MAE 7.424  (0 s)
+  fold 4: MAE 6.041  (0 s)
+  fold 5: MAE 9.384  (0 s)
+  fold 6: MAE 3.673  (0 s)
+  fold 7: MAE 6.443  (0 s)
+  fold 8: MAE 5.342  (0 s)
+  fold 9: MAE 3.643  (0 s)
+
+linear  (columns: ['log10_altitude_km', 'roughness_over_lambda', 'slope', 'f107_at_mars', 'cos_sza', 'sin_ls', 'cos_ls', 'dipole_dev'])
+  fold 0: MAE 3.131  (0 s)
+  fold 1: MAE 5.231  (0 s)
+  fold 2: MAE 4.838  (0 s)
+  fold 3: MAE 6.799  (0 s)
+  fold 4: MAE 5.124  (0 s)
+  fold 5: MAE 7.299  (0 s)
+  fold 6: MAE 4.519  (0 s)
+  fold 7: MAE 6.250  (0 s)
+  fold 8: MAE 4.583  (0 s)
+  fold 9: MAE 3.860  (0 s)
+
+GBM  (columns: ['log10_altitude_km', 'roughness_over_lambda', 'slope', 'f107_at_mars', 'cos_sza', 'sin_ls', 'cos_ls', 'dipole_dev'])
+  fold 0: MAE 2.661  (3 s)
+  fold 1: MAE 4.990  (3 s)
+  fold 2: MAE 5.393  (3 s)
+  fold 3: MAE 8.004  (3 s)
+  fold 4: MAE 7.921  (3 s)
+  fold 5: MAE 7.716  (3 s)
+  fold 6: MAE 3.425  (3 s)
+  fold 7: MAE 7.598  (3 s)
+  fold 8: MAE 5.347  (3 s)
+  fold 9: MAE 3.604  (3 s)
+
+night_4mhz_c5  (columns: ['log10_altitude_km', 'roughness_over_lambda'])
+  fold 0: MAE 3.154  (0 s)
+  fold 1: MAE 5.108  (0 s)
+  fold 2: MAE 3.724  (0 s)
+  fold 3: MAE 7.272  (0 s)
+  fold 4: MAE 5.392  (0 s)
+  fold 5: MAE 8.998  (0 s)
+  fold 6: MAE 3.244  (0 s)
+  fold 7: MAE 6.394  (0 s)
+  fold 8: MAE 4.885  (0 s)
+  fold 9: MAE 3.083  (0 s)
+
+night_4mhz_c6  (columns: ['log10_altitude_km', 'roughness_over_lambda'])
+  fold 0: MAE 3.195  (0 s)
+  fold 1: MAE 5.051  (0 s)
+  fold 2: MAE 3.427  (0 s)
+  fold 3: MAE 7.362  (0 s)
+  fold 4: MAE 4.865  (0 s)
+  fold 5: MAE 8.253  (0 s)
+  fold 6: MAE 3.066  (0 s)
+  fold 7: MAE 6.656  (0 s)
+  fold 8: MAE 4.352  (0 s)
+  fold 9: MAE 2.532  (0 s)
+
+night_4mhz_c7  (columns: ['log10_altitude_km', 'roughness_over_lambda'])
+  fold 0: MAE 2.846  (0 s)
+  fold 1: MAE 4.926  (0 s)
+  fold 2: MAE 3.506  (0 s)
+  fold 3: MAE 7.176  (0 s)
+  fold 4: MAE 4.972  (0 s)
+  fold 5: MAE 8.342  (0 s)
+  fold 6: MAE 2.950  (0 s)
+  fold 7: MAE 6.446  (0 s)
+  fold 8: MAE 4.327  (0 s)
+  fold 9: MAE 2.278  (0 s)
+
+night_4mhz_c10  (columns: ['dipole_dev', 'f107_at_mars', 'log10_altitude_km', 'roughness_over_lambda'])
+  fold 0: MAE 2.805  (0 s)
+  fold 1: MAE 4.919  (0 s)
+  fold 2: MAE 3.862  (0 s)
+  fold 3: MAE 6.630  (0 s)
+  fold 4: MAE 4.231  (0 s)
+  fold 5: MAE 7.324  (0 s)
+  fold 6: MAE 3.573  (0 s)
+  fold 7: MAE 6.168  (0 s)
+  fold 8: MAE 4.468  (0 s)
+  fold 9: MAE 2.121  (0 s)
+
+radar_4mhz_f107  (columns: ['dipole_dev', 'f107_at_mars', 'log10_altitude_km', 'roughness_over_lambda'])
+  fold 0: MAE 2.458  (0 s)
+  fold 1: MAE 4.771  (0 s)
+  fold 2: MAE 3.471  (0 s)
+  fold 3: MAE 6.991  (0 s)
+  fold 4: MAE 4.488  (0 s)
+  fold 5: MAE 7.355  (0 s)
+  fold 6: MAE 3.110  (0 s)
+  fold 7: MAE 6.102  (0 s)
+  fold 8: MAE 4.061  (0 s)
+  fold 9: MAE 2.071  (0 s)
+
+MAE per fold [dB]
+model  constant  linear   GBM  night_4mhz_c5  night_4mhz_c6  night_4mhz_c7  night_4mhz_c10  radar_4mhz_f107
+fold                                                                                                       
+0          3.46    3.13  2.66           3.15           3.19           2.85            2.81             2.46
+1          5.34    5.23  4.99           5.11           5.05           4.93            4.92             4.77
+2          4.18    4.84  5.39           3.72           3.43           3.51            3.86             3.47
+3          7.42    6.80  8.00           7.27           7.36           7.18            6.63             6.99
+4          6.04    5.12  7.92           5.39           4.87           4.97            4.23             4.49
+5          9.38    7.30  7.72           9.00           8.25           8.34            7.32             7.35
+6          3.67    4.52  3.43           3.24           3.07           2.95            3.57             3.11
+7          6.44    6.25  7.60           6.39           6.66           6.45            6.17             6.10
+8          5.34    4.58  5.35           4.88           4.35           4.33            4.47             4.06
+9          3.64    3.86  3.60           3.08           2.53           2.28            2.12             2.07
+
+Mean MAE over the folds [dB]
+                  mae
+model                
+constant         5.49
+linear           5.16
+GBM              5.67
+night_4mhz_c5    5.13
+night_4mhz_c6    4.88
+night_4mhz_c7    4.78
+night_4mhz_c10   4.61
+radar_4mhz_f107  4.49
+saved: results/night_4mhz/validate.csv
+
+Formula constants fitted in the folds
+                              mean    std      min      max
+model           parameter                                  
+night_4mhz_c5   a           54.052  0.771   52.657   55.452
+night_4mhz_c6   a          299.808  3.333  293.282  305.687
+night_4mhz_c7   a          161.188  1.531  158.741  164.201
+night_4mhz_c10  a          194.847  1.200  192.946  197.155
+radar_4mhz_f107 a0          79.081  2.263   75.054   81.920
+                k_h        -22.500  0.896  -23.657  -21.103
+                k_r         -3.091  0.122   -3.336   -2.934
+                k_dip       -0.165  0.010   -0.185   -0.155
+                k_F         -0.087  0.010   -0.107   -0.075
+saved: results/night_4mhz/validate_params.csv
+
+=== 2026-11-15 13:27  night_4mhz  residuals ===
+Night at 4 MHz (all orbits): radar law and anomalous orbits
+Formula: radar_4mhz_f107  (a0 + k_h*log10_altitude_km + k_r*log10(roughness_over_lambda) + k_dip*dipole_dev + k_F*f107_at_mars)
+Out-of-fold residuals: MAE 4.42 dB, mean -1.17, median 0.17, skewness -1.01
+Quantiles: 1%: -18.8, 5%: -15.1, 25%: -3.4, 50%: 0.2, 75%: 2.6, 95%: 6.9, 99%: 10.5
+
+Residuals by period (bias = mean; negative = formula overestimates)
+          rows  bias_dB  mae_dB
+period                         
+night   866829    -1.17    4.42
+
+Residuals by period and frequency
+                   rows  bias_dB  mae_dB
+period freq_mhz                         
+night  4.0       866829    -1.17    4.42
+saved: results/night_4mhz/residuals_by_group.csv
+
+Residual variance 38.6 = between orbits 30.2 + within orbits 8.4
+Orbits with mean residual < -8.0 dB: 45 of 339 (13.1% of rows); at night (mean Sun < -10°): 45
+saved: results/night_4mhz/residuals_by_orbit.csv
+
+Spearman correlation between residual and variable
+                           spearman
+monopole_tilt                 0.130
+dipole_dev                    0.095
+year                         -0.074
+roughness_over_lambda         0.068
+latitude                      0.056
+slope                         0.054
+msd_au                       -0.052
+longitude                    -0.040
+band                         -0.036
+local_true_solar_time         0.035
+cos_sza                      -0.035
+Sun_elevation_angle          -0.035
+log10_altitude_km             0.035
+tangential_magnetic_field     0.021
+sin_ls                        0.020
+radial_magnetic_field         0.020
+cos_ls                        0.019
+f107_at_mars                 -0.016
+total_magnetic_field          0.005
+F10_7_index                  -0.004
+freq_mhz                        NaN
+saved: results/night_4mhz/residuals_hist.csv
+saved: results/night_4mhz/residuals_by_sun.csv
+
+=== 2026-11-15 13:27  night_4mhz  anomalies ===
+Night at 4 MHz (all orbits): radar law and anomalous orbits
+Reference formula: radar_4mhz_f107  (a0 + k_h*log10_altitude_km + k_r*log10(roughness_over_lambda) + k_dip*dipole_dev + k_F*f107_at_mars)
+Threshold: mean residual of the orbit < -8.0 dB
+Iterative search:
+  iteration 0: 44 anomalous orbits
+  iteration 1: 46 anomalous orbits
+  iteration 2: 47 anomalous orbits
+  iteration 3: 47 anomalous orbits
+Constants fitted on the normal orbits: a0 = 84.855, k_h = -25.056, k_r = -2.969, k_dip = -0.186, k_F = -0.042
+
+Anomalous orbits: 47 of 339 (13.9%), 13.7% of rows
+
+Orbit means: normal and anomalous orbits
+                              normal  anomalous  difference
+year                         2013.72    2013.45       -0.27
+peak_corrected_echo_power      20.16       6.98      -13.18
+median_corrected_echo_power    -2.40      -4.23       -1.83
+snr                            22.56      11.22      -11.34
+F10_7_index                   122.94     147.68       24.74
+f107_at_mars                   46.14      56.20       10.06
+Sun_elevation_angle           -18.85     -17.59        1.26
+altitude_km                   458.84     390.99      -67.85
+roughness_over_lambda           0.09       0.10        0.02
+dipole_dev                      4.38       2.63       -1.75
+bias                           -0.07     -14.61      -14.54
+Spearman correlation (per orbit) between echo residual and noise floor: 0.44
+
+Threshold sensitivity
+   threshold_dB  orbits  pct_orbits  pct_rows
+0            -6      51        15.0      15.0
+1            -8      47        13.9      13.7
+2           -10      42        12.4      12.2
+3           -12      35        10.3      10.3
+
+The anomalous orbits form 10 episodes
+   first_orbit  last_orbit  orbits     year  bias_dB
+0      10671.0     10678.0       5  2012.38   -15.08
+1      10770.0     10781.0       5  2012.46   -13.30
+2      10845.0     10880.0       7  2012.53   -16.94
+3      10911.0     10911.0       1  2012.57   -16.22
+4      11035.0     11049.0       3  2012.67   -11.53
+5      12690.0     12704.0       3  2013.99   -12.62
+6      12728.0     12759.0      12  2014.03   -13.64
+7      12905.0     12928.0       8  2014.17   -15.38
+8      13043.0     13043.0       1  2014.27    -9.69
+9      15022.0     15029.0       2  2015.85   -20.61
+saved: results/night_4mhz/anomalous_orbits.csv
+saved: results/night_4mhz/orbit_summary.csv
+saved: results/night_4mhz/anomaly_thresholds.csv
+saved: results/night_4mhz/anomaly_episodes.csv

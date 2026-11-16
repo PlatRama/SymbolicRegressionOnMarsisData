@@ -1,0 +1,121 @@
+# Formulas of the project (see src/formulas.py).
+#   expression   formula as text: parameter names, data columns, log10 log exp sqrt square abs pos, ^
+#   params       initial values of the fitted constants
+#   offset_by    optional: one fitted constant per value of this column (offset_init = initial value)
+# A PySR equation can be converted with formulas.formula_from_pysr(equation, name).
+
+
+# Whole dataset
+
+[all_data_c7]
+description = "Simple global formula: Sun and altitude together"
+expression  = "a*cos_sza + a*log10_altitude_km + b"
+params      = { a = -10.034615, b = 39.452705 }
+origin      = "PySR, all_data_long, complexity 7 (seeds 0 and 2 identical, seed 1 similar)"
+
+
+# Night, 4 MHz
+
+[night_4mhz_c5]
+description = "Altitude and roughness added, one parameter"
+expression  = "a / (log10_altitude_km + roughness_over_lambda)"
+params      = { a = 53.279053 }
+origin      = "PySR, night_4mhz, complexity 5 (identical in seeds 0, 1, 2)"
+
+[night_4mhz_c6]
+description = "Altitude and roughness added, exponential form"
+expression  = "a*exp(-log10_altitude_km - roughness_over_lambda)"
+params      = { a = 296.64117 }
+origin      = "PySR, night_4mhz, complexity 6 (identical in seeds 0, 1, 2)"
+
+[night_4mhz_c7]
+description = "Altitude plus square root of roughness, squared in the denominator (elbow of the front)"
+expression  = "a/(log10_altitude_km + sqrt(roughness_over_lambda))^2"
+params      = { a = 160.7425 }
+origin      = "PySR, night_4mhz, complexity 7 (seeds 0 and 2; seed 1 equivalent exponential form)"
+
+[night_4mhz_c10]
+description = "As c5-c7 plus dipole tilt and solar activity"
+expression  = "(a - dipole_dev - f107_at_mars)/(log10_altitude_km + roughness_over_lambda)^2"
+params      = { a = 196.65138 }
+origin      = "PySR, night_4mhz, complexity 10 (seed 2)"
+
+[radar_4mhz_f107]
+description = "Radar law: altitude (geometry), roughness (scattering), dipole tilt (antenna), solar flux"
+expression  = "a0 + k_h*log10_altitude_km + k_r*log10(roughness_over_lambda) + k_dip*dipole_dev + k_F*f107_at_mars"
+params      = { a0 = 70.0, k_h = -20.8, k_r = -3.43, k_dip = -0.20, k_F = 0.0 }
+origin      = "PySR night 4 MHz complexity 14, plus an F10.7 term (hypothesis from the paper)"
+
+
+# Night, all frequencies
+
+[night_allfreq_offset]
+description = "PySR night form with one constant per frequency"
+expression  = "exp(a / log10_altitude_km - sqrt(roughness_over_lambda))"
+params      = { a = 7.73 }
+offset_by   = "freq_mhz"
+offset_init = 0.0
+origin      = "PySR night all frequencies, frequency term replaced by per-frequency constants"
+
+[radar_night]
+description = "Night radar law for all frequencies with a free gain G(f) per frequency"
+expression  = "k_h*log10_altitude_km + k_r*log10(roughness_over_lambda) + k_dip*dipole_dev + k_F*f107_at_mars"
+params      = { k_h = -20.0, k_r = -3.0, k_dip = -0.2, k_F = 0.0 }
+offset_by   = "freq_mhz"
+offset_init = 75.0
+origin      = "radar_4mhz_f107 extended to all frequencies, G(f) instead of a0"
+
+[night_allfreq_c14]
+description = "Altitude and roughness plus a resonance peak in frequency near f0"
+expression  = "exp(a/log10_altitude_km - sqrt(roughness_over_lambda)) + b/(freq_mhz - f0)^2"
+params      = { a = 7.4934664, b = 1.1518481, f0 = 3.582948 }
+origin      = "PySR, night_allfreq, complexity 14 (seed 1); resonance near 3.6 MHz also in seeds 0 and 2"
+
+[radar_night_resonance]
+description = "Night radar law with G(f) = g0 + A/(f - f0)^2: antenna resonance instead of 4 constants"
+expression  = "g0 + A/(freq_mhz - f0)^2 + k_h*log10_altitude_km + k_r*log10(roughness_over_lambda) + k_dip*dipole_dev + k_F*f107_at_mars"
+params      = { g0 = 75.0, A = 1.2, f0 = 3.6, k_h = -24.0, k_r = -3.0, k_dip = -0.18, k_F = -0.04 }
+origin      = "radar_night with the resonance term found by PySR (night_allfreq, seeds 0-2)"
+
+
+# Day: ionospheric attenuation
+# F and f are divided by typical values (40 and 4 MHz), so k is the attenuation in typical conditions.
+
+[attenuation_free]
+description = "Attenuation with free exponents: m (solar flux), p (Sun), n (frequency)"
+expression  = "k * (f107_at_mars/40)^m * pos(cos_sza + s)^p / (freq_mhz/4)^n"
+params      = { k = 3.0, m = 1.0, s = 0.19, p = 1.0, n = 1.0 }
+origin      = "PySR form with free exponents"
+
+[attenuation_pysr]
+description = "Attenuation as found by PySR: m = p = n = 1"
+expression  = "k * (f107_at_mars/40) * pos(cos_sza + s) / (freq_mhz/4)"
+params      = { k = 3.0, s = 0.19 }
+origin      = "PySR, attenuation, complexity 11 (seed 0)"
+
+[attenuation_c7]
+description = "Attenuation without solar activity: linear in the Sun, 1/f in frequency"
+expression  = "(a*cos_sza + b) / freq_mhz"
+params      = { a = 61.827785, b = 11.034094 }
+origin      = "PySR, attenuation, complexity 7 (seeds 1 and 2 almost identical)"
+
+[attenuation_chapman]
+description = "Theory: Chapman layer, non-deviative absorption, m = p = 1/2, n = 2"
+expression  = "k * sqrt(f107_at_mars/40) * sqrt(pos(cos_sza + s)) / (freq_mhz/4)^2"
+params      = { k = 5.0, s = 0.19 }
+origin      = "theory"
+
+
+# Single model: night law - daytime attenuation (at night pos(cos_sza + s) = 0)
+
+[combined]
+description = "Radar law with antenna resonance minus ionospheric attenuation k*F*(cos χ + s)/f"
+expression  = "g0 + A/(freq_mhz - f0)^2 + k_h*log10_altitude_km + k_r*log10(roughness_over_lambda) + k_dip*dipole_dev + k_F*f107_at_mars - k*(f107_at_mars/40)*pos(cos_sza + s)/(freq_mhz/4)"
+params      = { g0 = 75.85, A = 1.419, f0 = 3.558, k_h = -24.39, k_r = -2.922, k_dip = -0.179, k_F = -0.041, k = 17.2, s = 0.168 }
+origin      = "radar_night_resonance - attenuation_pysr (initial values from the separate fits)"
+
+[combined_free]
+description = "As combined, with free attenuation exponents (m, p, n)"
+expression  = "g0 + A/(freq_mhz - f0)^2 + k_h*log10_altitude_km + k_r*log10(roughness_over_lambda) + k_dip*dipole_dev + k_F*f107_at_mars - k*(f107_at_mars/40)^m*pos(cos_sza + s)^p/(freq_mhz/4)^n"
+params      = { g0 = 75.85, A = 1.419, f0 = 3.558, k_h = -24.39, k_r = -2.922, k_dip = -0.179, k_F = -0.041, k = 17.4, m = 0.65, s = 0.16, p = 1.0, n = 1.13 }
+origin      = "radar_night_resonance - attenuation_free (initial values from exponents)"

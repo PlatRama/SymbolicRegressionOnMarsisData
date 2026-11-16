@@ -1,0 +1,81 @@
+
+=== 2026-11-15 13:29  all_data  explore ===
+Whole dataset: is there a single function that explains all the data?
+Selected rows: 4,230,657 of 4,230,657 (100.0%), orbits: 727
+Rows per frequency: {1.8: 28706, 3.0: 873412, 4.0: 2083317, 5.0: 1245222}
+Target (peak_corrected_echo_power): mean 14.58 dB, std 7.09 dB
+
+Observing conditions in the test set of each fold
+      start_year         period  orbits    rows  pct_day  sun_elev  F10.7  altitude_km  target_dB  rows_1.8MHz  rows_3MHz  rows_4MHz  rows_5MHz
+fold                                                                                                                                           
+0         2005.9  2005.9-2007.4      73  399596     59.9       8.2   78.5        612.5       10.9      12640.0    72510.0     200255     114191
+1         2007.4  2007.4-2007.7      73  417980    100.0      17.0   70.7        382.3       12.5       6464.0        0.0     226402     185114
+2         2007.7  2007.7-2007.8      73  412930    100.0       8.2   67.7        477.3       14.1          0.0        0.0     227512     185418
+3         2009.2  2009.2-2012.3      73  418684     51.9       2.3   83.0        431.2       15.4          0.0    86758.0     211234     120692
+4         2012.3  2012.3-2012.5      73  412724      0.0     -18.0  127.9        426.5       18.6       9602.0   199261.0     176967      26894
+5         2012.5  2012.5-2014.0      73  411509      1.4     -15.1  132.7        457.5       15.2          0.0   201744.0     183395      26370
+6         2014.0  2014.0-2014.1      73  423832      0.0     -20.4  156.1        438.4       14.7          0.0   184164.0     189147      50521
+7         2014.1  2014.1-2017.7      72  434265      2.0     -22.0  126.2        421.8       16.4          0.0   128975.0     207842      97448
+8         2019.0  2019.0-2019.4      72  446615     32.6      -3.2   70.7        481.1       15.8          0.0        0.0     229724     216891
+9         2019.4  2019.4-2021.1      72  452522     76.3       5.7   82.0        420.9       12.3          0.0        0.0     230839     221683
+saved: results/all_data/fold.csv
+saved: results/all_data/explore_orbits.csv
+
+=== 2026-11-15 13:29  all_data  residuals ===
+Whole dataset: is there a single function that explains all the data?
+Formula: all_data_c7  (a*cos_sza + a*log10_altitude_km + b)
+Out-of-fold residuals: MAE 4.99 dB, mean -0.46, median -0.09, skewness -0.34
+Quantiles: 1%: -16.2, 5%: -11.9, 25%: -4.3, 50%: -0.1, 75%: 3.9, 95%: 9.2, 99%: 12.9
+
+Residuals by period (bias = mean; negative = formula overestimates)
+             rows  bias_dB  mae_dB
+period                            
+night     1909049    -1.91    5.55
+twilight   528749     2.71    4.96
+day       1792859     0.16    4.41
+
+Residuals by period and frequency
+                     rows  bias_dB  mae_dB
+period   freq_mhz                         
+night    1.8        22242    -2.65    3.33
+         3.0       722147    -2.94    5.71
+         4.0       866829     0.08    5.46
+         5.0       297831    -5.18    5.55
+twilight 3.0       150027     0.57    4.36
+         4.0       247520     5.38    6.46
+         5.0       131202     0.11    2.82
+day      1.8         6464   -10.08   19.21
+         3.0         1238     1.83    2.32
+         4.0       968968     2.72    4.17
+         5.0       816189    -2.80    4.58
+saved: results/all_data/residuals_by_group.csv
+
+Residual variance 40.3 = between orbits 23.1 + within orbits 17.2
+Orbits with mean residual < -8.0 dB: 63 of 727 (8.7% of rows); at night (mean Sun < -10°): 55
+saved: results/all_data/residuals_by_orbit.csv
+
+Spearman correlation between residual and variable
+                           spearman
+f107_at_mars                 -0.295
+F10_7_index                  -0.261
+roughness_over_lambda        -0.161
+sin_ls                       -0.144
+dipole_dev                   -0.142
+msd_au                       -0.141
+log10_altitude_km            -0.137
+monopole_tilt                -0.135
+cos_ls                        0.131
+freq_mhz                     -0.124
+slope                        -0.122
+Sun_elevation_angle           0.122
+cos_sza                       0.122
+year                         -0.119
+latitude                      0.105
+local_true_solar_time         0.071
+longitude                     0.057
+total_magnetic_field          0.050
+tangential_magnetic_field     0.050
+radial_magnetic_field        -0.028
+band                          0.001
+saved: results/all_data/residuals_hist.csv
+saved: results/all_data/residuals_by_sun.csv

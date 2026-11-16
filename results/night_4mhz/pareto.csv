@@ -1,0 +1,60 @@
+seed,complexity,mae_train,mae_test,equation
+0,1,5.588190226197636,3.582513834761016,19.294783
+0,3,5.426300543966209,3.3107525970508487,51.492237 / log10_altitude_km
+0,4,5.31283506255686,3.3201229915896473,273.24637 / exp(log10_altitude_km)
+0,5,5.263968449636761,2.9560916979950784,53.279053 / (roughness_over_lambda + log10_altitude_km)
+0,6,5.064431336171212,2.3995437467828777,296.64117 / exp(log10_altitude_km + roughness_over_lambda)
+0,7,4.992848050163915,2.1719983945510526,160.7425 / square(sqrt(roughness_over_lambda) + log10_altitude_km)
+0,8,4.915498964562244,2.9766451160862974,(147.86366 - dipole_dev) / square(log10_altitude_km + roughness_over_lambda)
+0,9,4.843701161715958,2.5534108684404644,(163.14294 - dipole_dev) / square(sqrt(roughness_over_lambda) + log10_altitude_km)
+0,11,4.817785712828046,2.9241366440868606,(19.685308 / ((roughness_over_lambda + log10_altitude_km) - 1.7380875)) - (dipole_dev * 0.21814641)
+0,12,4.7482412836482695,2.9206334757253356,((84.33519 - dipole_dev) / log10_altitude_km) / ((sqrt(roughness_over_lambda) + log10_altitude_km) - 1.2869959)
+0,13,4.729427331286449,2.058886449684601,(((203.88882 - dipole_dev) / (log10_altitude_km + sqrt(roughness_over_lambda))) / log10_altitude_km) - sqrt(f107_at_mars)
+0,15,4.675514328482002,2.021322268309738,(((146.60173 - dipole_dev) / log10_altitude_km) / (log10_altitude_km + (sqrt(roughness_over_lambda) + -0.8025365))) - sqrt(f107_at_mars)
+0,16,4.656811311042254,2.014067109522243,(((150.13907 - dipole_dev) / log10_altitude_km) / ((sqrt(sqrt(roughness_over_lambda)) + log10_altitude_km) - 0.9679001)) - sqrt(f107_at_mars)
+0,17,4.668582082135789,2.016162409923843,(((156.76912 / log10_altitude_km) / ((log10_altitude_km + sqrt(roughness_over_lambda)) - 0.66395515)) - (dipole_dev * 0.1876486)) - sqrt(f107_at_mars)
+0,18,4.652775720656137,1.87788989212971,((((239.56633 / (log10_altitude_km + sqrt(roughness_over_lambda))) - dipole_dev) / log10_altitude_km) - 5.011104) - (sqrt(f107_at_mars) - sqrt(dipole_dev))
+0,20,4.643284604555405,1.8639917115443017,(((157.13922 / log10_altitude_km) / (sqrt(roughness_over_lambda) + (log10_altitude_km - 0.62152094))) - (sqrt(f107_at_mars) - sqrt(dipole_dev))) - (dipole_dev * 0.36219075)
+0,21,4.636673509033308,1.8880565123876556,(((((208.02791 / log10_altitude_km) - dipole_dev) / (log10_altitude_km + sqrt(roughness_over_lambda))) - log10_altitude_km) - (sqrt(f107_at_mars) - sqrt(dipole_dev))) - log10(roughness_over_lambda)
+0,23,4.633519734084419,1.8940554131145884,(((((206.70404 / log10_altitude_km) - dipole_dev) / (log10_altitude_km + sqrt(roughness_over_lambda))) - (sqrt(f107_at_mars) - sqrt(dipole_dev))) - (log10_altitude_km + cos_sza)) - log10(roughness_over_lambda)
+0,25,4.628774373816259,1.889652917954251,(((((206.7032 / (log10_altitude_km + sqrt(roughness_over_lambda))) / log10_altitude_km) - (dipole_dev * 0.35865015)) - (sqrt(f107_at_mars) + (cos_sza - sqrt(dipole_dev)))) - log10(roughness_over_lambda)) - log10_altitude_km
+1,1,5.587514699134655,3.6610684993167326,19.140871
+1,3,5.425463589674004,3.4432523260689463,50.92547 / log10_altitude_km
+1,4,5.31267324725868,3.4074032112302577,exp(5.6041393 - log10_altitude_km)
+1,5,5.263151211711133,3.0310417214933456,52.907696 / (roughness_over_lambda + log10_altitude_km)
+1,6,5.064100982067826,2.4383313394750994,exp((5.6891146 - roughness_over_lambda) - log10_altitude_km)
+1,7,4.9917620188910465,2.0163326165588282,exp((5.822676 - sqrt(roughness_over_lambda)) - log10_altitude_km)
+1,8,4.952542344797901,2.008616029573932,exp((6.0404243 - log10_altitude_km) - sqrt(sqrt(roughness_over_lambda)))
+1,9,4.887417360650406,2.051720006188917,41.098614 - ((square(log10_altitude_km) + log10(roughness_over_lambda)) * 3.8978424)
+1,11,4.830811095496748,1.960208155580989,47.72902 - ((square(log10_altitude_km) + log10(f107_at_mars * roughness_over_lambda)) * 3.9208574)
+1,12,4.808726498110928,2.1139554405311682,53.463158 - ((square(log10_altitude_km) + log10(roughness_over_lambda * square(f107_at_mars))) * 3.8315358)
+1,13,4.7131460132560585,2.490803826960109,((dipole_dev * -0.19267799) + 40.62756) - ((log10(roughness_over_lambda) + square(log10_altitude_km)) * 3.7069254)
+1,14,4.689804321861443,2.4329811083600705,47.656857 - ((log10(roughness_over_lambda * (square(dipole_dev) + f107_at_mars)) + square(log10_altitude_km)) * 3.861691)
+1,15,4.671435265157478,2.2108962632889573,(dipole_dev * -0.18726867) + (46.70494 - ((square(log10_altitude_km) + log10(roughness_over_lambda * f107_at_mars)) * 3.711916))
+1,16,4.662776264871503,1.934567776430797,((square(dipole_dev) * -0.005077397) + 47.50897) - ((square(log10_altitude_km) + log10(roughness_over_lambda * f107_at_mars)) * 3.8443086)
+1,18,4.6604346772103895,1.9323159967677148,(((square(dipole_dev) * -0.005070244) - ((square(log10_altitude_km) + log10(f107_at_mars * roughness_over_lambda)) * 3.875146)) + 47.604565) + roughness_over_lambda
+1,19,4.658526396252113,1.9295567897179908,(square(dipole_dev) * -0.005069781) + (sqrt(roughness_over_lambda) + (47.482025 - ((square(log10_altitude_km) + log10(f107_at_mars * roughness_over_lambda)) * 3.8751464)))
+1,20,4.647587423672912,2.0466447057175463,43.050373 + ((-0.004966804 * square(dipole_dev)) + ((sqrt(square(log10(roughness_over_lambda)) / (f107_at_mars * 0.031353693)) - square(log10_altitude_km)) * 4.0442066))
+1,22,4.647196367623575,2.0244564014024182,(((sqrt(square(log10(roughness_over_lambda)) / (f107_at_mars * 0.032033645)) - square(log10_altitude_km)) * 4.012173) + ((square(dipole_dev) + f107_at_mars) * -0.004966804)) + 43.045406
+1,23,4.643968589389837,2.002613970540869,((square(dipole_dev) * -0.004966804) + ((sqrt(square(log10(roughness_over_lambda)) / (f107_at_mars * 0.032033645)) - square(log10_altitude_km)) * 4.012173)) + (log10(sin_ls) + 43.045406)
+1,24,4.642243154363023,2.0295404053201507,((square(square(cos_sza)) + (sqrt(square(log10(roughness_over_lambda)) / (f107_at_mars * 0.032033645)) - square(log10_altitude_km))) * 4.0442066) + ((-0.004966804 * square(dipole_dev)) + 43.050373)
+2,1,5.58941675975904,3.5480132087793725,19.364862
+2,3,5.427359637184361,3.278709048837154,51.63351 / log10_altitude_km
+2,4,5.314838124133924,3.231135956555109,275.0062 / exp(log10_altitude_km)
+2,5,5.265023234011147,2.9253397094049625,53.43624 / (log10_altitude_km + roughness_over_lambda)
+2,6,5.06574002285375,2.3529772687223556,297.88904 / exp(roughness_over_lambda + log10_altitude_km)
+2,7,4.993572201252482,2.156679528134684,161.06512 / square(sqrt(roughness_over_lambda) + log10_altitude_km)
+2,8,4.916722773674161,2.919485892384678,(148.54752 - dipole_dev) / square(log10_altitude_km + roughness_over_lambda)
+2,9,4.844157122632318,2.5364038277194196,(163.41074 - dipole_dev) / square(sqrt(roughness_over_lambda) + log10_altitude_km)
+2,10,4.838821725023583,2.1285311762612458,((196.65138 - f107_at_mars) - dipole_dev) / square(log10_altitude_km + roughness_over_lambda)
+2,11,4.792827640504072,2.201149342888274,((210.80083 - f107_at_mars) - dipole_dev) / square(sqrt(roughness_over_lambda) + log10_altitude_km)
+2,12,4.789892989920652,2.1828157550120033,(236.76118 - (dipole_dev + f107_at_mars)) / square(log10_altitude_km + sqrt(sqrt(roughness_over_lambda)))
+2,13,4.7510051034970155,2.1138429742573863,(((210.9655 - dipole_dev) - f107_at_mars) / square(sqrt(roughness_over_lambda) + log10_altitude_km)) - cos_ls
+2,14,4.726528215471798,2.188427051932155,((211.028 - dipole_dev) - f107_at_mars) / square(sqrt(roughness_over_lambda * exp(cos_ls)) + log10_altitude_km)
+2,16,4.68440229775905,2.0701479154334645,square((sqrt(roughness_over_lambda) + -11.140646) - (log10_altitude_km * -2.150346)) - (sqrt(f107_at_mars) + (dipole_dev * 0.20741692))
+2,17,4.6590778376916395,2.028056257166906,square((sqrt(sqrt(roughness_over_lambda)) + -11.418187) - (log10_altitude_km * -2.1740003)) - (sqrt(f107_at_mars) + (dipole_dev * 0.19976872))
+2,19,4.651512677523766,2.069712781689369,square((sqrt(sqrt(roughness_over_lambda)) + -11.3057375) - (log10_altitude_km * -2.1467478)) - (sqrt(f107_at_mars) + ((dipole_dev * 0.19461913) + cos_sza))
+2,20,4.652202350827777,2.157996903040822,((square((sqrt(sqrt(roughness_over_lambda)) + -11.442119) - (log10_altitude_km * -2.3009431)) + (dipole_dev / -4.984005)) + sin_ls) - (f107_at_mars * 0.09653114)
+2,21,4.634393363866683,1.8820998603288255,square((sqrt(sqrt(roughness_over_lambda)) - (log10_altitude_km * -2.1997416)) + -11.21778) + (((dipole_dev / -2.7264745) - (f107_at_mars * 0.098717794)) + sqrt(dipole_dev))
+2,23,4.6288832909742474,1.9003788421113843,((square((log10_altitude_km * -2.1105194) - (sqrt(sqrt(roughness_over_lambda)) + -10.969399)) + (dipole_dev / -2.770551)) + (sqrt(dipole_dev) - (f107_at_mars * 0.1036014))) - cos_sza
+2,25,4.626542400633611,1.8990550172032943,((square((log10_altitude_km * -2.058788) - (sqrt(sqrt(roughness_over_lambda)) + -10.919543)) - 0.96646243) - cos_sza) + ((sqrt(dipole_dev) - (f107_at_mars * 0.10192613)) + (dipole_dev / -2.766808))

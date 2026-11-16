@@ -1,0 +1,25 @@
+{
+  "validate": {
+    "mean_mae": {
+      "constant": 4.189482,
+      "linear": 3.078005,
+      "GBM": 3.245096,
+      "night_4mhz_c5": 3.64717,
+      "night_4mhz_c6": 3.254699,
+      "night_4mhz_c7": 3.211267,
+      "night_4mhz_c10": 3.265647,
+      "radar_4mhz_f107": 2.839069
+    },
+    "mean_constants": {
+      "night_4mhz_c5:a": 56.760274,
+      "night_4mhz_c6:a": 311.778703,
+      "night_4mhz_c7:a": 167.263914,
+      "night_4mhz_c10:a": 200.592561,
+      "radar_4mhz_f107:a0": 85.160685,
+      "radar_4mhz_f107:k_h": -25.175068,
+      "radar_4mhz_f107:k_r": -2.967827,
+      "radar_4mhz_f107:k_dip": -0.187626,
+      "radar_4mhz_f107:k_F": -0.041857
+    }
+  }
+}

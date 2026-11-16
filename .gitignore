@@ -1,0 +1,11 @@
+.idea/
+
+# ---- Python ----
+__pycache__/
+*.pyc
+*.egg-info/
+
+# ---- Ambienti virtuali ----
+.venv/
+venv/
+env/

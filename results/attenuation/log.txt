@@ -1,0 +1,205 @@
+
+=== 2026-11-15 13:31  attenuation  attenuation ===
+Day: ionospheric attenuation law (echo expected at night - measured echo)
+Reference night law: radar_night_resonance, fitted on night_allfreq (1,647,781 rows)
+  g0 = 75.853, A = 1.419, f0 = 3.558, k_h = -24.393, k_r = -2.922, k_dip = -0.179, k_F = -0.041
+saved: results/attenuation/attenuation.parquet
+
+Check: attenuation at night (should be ~0)
+            rows  mean  median
+freq_mhz                      
+1.8        22242 -0.83   -0.81
+3.0       612955  0.11    0.01
+4.0       748090  0.07   -0.05
+5.0       264494  0.29    0.01
+
+Median attenuation [dB] by Sun elevation bin (rows) and frequency (empty if < 500 rows)
+freq_mhz   1.8  3.0   4.0  5.0
+sun_bin                       
+-47.5      NaN  NaN   6.2  7.2
+-42.5      NaN -0.2  -0.5  1.2
+-37.5      NaN -0.9  -1.4 -0.5
+-32.5      NaN  0.4   0.0 -0.4
+-27.5      NaN  0.2   0.1  0.2
+-22.5      1.3  0.1   0.3  0.8
+-17.5     -1.6  0.3  -0.0 -0.1
+-12.5      NaN -0.4  -0.2 -0.2
+-7.5       NaN  1.3   0.4  0.5
+-2.5       NaN  3.5   1.3  0.3
+ 2.5       NaN  1.3   3.4  2.6
+ 7.5       NaN  NaN   3.0  2.3
+ 12.5     18.3  NaN   6.4  4.8
+ 17.5     20.8  NaN   8.7  6.8
+ 22.5      NaN  NaN  10.4  8.3
+ 27.5      NaN  NaN   7.4  6.3
+ 32.5      NaN  NaN  11.0  9.4
+saved: results/attenuation/attenuation_by_sun.csv
+
+Ratio att(4 MHz)/att(5 MHz) by Sun bin (1/f^2 predicts 1.56, 1/f predicts 1.25)
+         att4/att5
+sun_bin           
+7.5           1.32
+12.5          1.34
+17.5          1.28
+22.5          1.25
+27.5          1.17
+32.5          1.17
+
+Median attenuation with Sun > 5° by F10.7 at Mars and frequency
+freq_mhz       1.8  4.0  5.0
+f107_at_mars                
+(20, 30]       NaN  2.5  2.1
+(30, 35]      20.8  4.9  3.7
+(35, 40]       NaN  7.8  6.1
+(40, 50]       NaN  8.7  7.0
+(50, 100]      NaN  3.7  2.2
+
+Lit rows (cos χ > -0.2) without anomalous orbits: {1.8: 6464, 3.0: 194416, 4.0: 1268368, 5.0: 955558}
+saved: results/attenuation/attenuation_by_cos_sza.csv
+
+=== 2026-11-15 13:31  attenuation  validate ===
+Day: ionospheric attenuation law (echo expected at night - measured echo)
+Rows: 2,424,806, folds: 10 (chronological)
+
+constant  (columns: ['cos_sza', 'f107_at_mars', 'freq_mhz'])
+  fold 0: MAE 3.143  (0 s)
+  fold 1: MAE 4.921  (0 s)
+  fold 2: MAE 4.848  (0 s)
+  fold 3: MAE 3.814  (0 s)
+  fold 4: MAE 4.089  (0 s)
+  fold 5: MAE 4.194  (0 s)
+  fold 6: MAE 5.055  (0 s)
+  fold 7: MAE 4.081  (0 s)
+  fold 8: MAE 5.460  (0 s)
+  fold 9: MAE 4.774  (0 s)
+
+linear  (columns: ['cos_sza', 'f107_at_mars', 'freq_mhz'])
+  fold 0: MAE 4.114  (0 s)
+  fold 1: MAE 3.096  (0 s)
+  fold 2: MAE 3.973  (0 s)
+  fold 3: MAE 3.749  (0 s)
+  fold 4: MAE 3.769  (0 s)
+  fold 5: MAE 3.402  (0 s)
+  fold 6: MAE 4.606  (0 s)
+  fold 7: MAE 3.198  (0 s)
+  fold 8: MAE 3.539  (0 s)
+  fold 9: MAE 4.190  (0 s)
+
+GBM  (columns: ['cos_sza', 'f107_at_mars', 'freq_mhz'])
+  fold 0: MAE 4.355  (3 s)
+  fold 1: MAE 4.053  (3 s)
+  fold 2: MAE 4.254  (3 s)
+  fold 3: MAE 3.803  (3 s)
+  fold 4: MAE 4.119  (3 s)
+  fold 5: MAE 3.938  (3 s)
+  fold 6: MAE 5.062  (3 s)
+  fold 7: MAE 3.238  (3 s)
+  fold 8: MAE 4.064  (4 s)
+  fold 9: MAE 4.361  (4 s)
+
+attenuation_c7  (columns: ['cos_sza', 'freq_mhz'])
+  fold 0: MAE 3.857  (0 s)
+  fold 1: MAE 3.219  (0 s)
+  fold 2: MAE 3.952  (0 s)
+  fold 3: MAE 3.800  (0 s)
+  fold 4: MAE 3.853  (0 s)
+  fold 5: MAE 3.430  (0 s)
+  fold 6: MAE 4.086  (0 s)
+  fold 7: MAE 3.264  (0 s)
+  fold 8: MAE 3.537  (0 s)
+  fold 9: MAE 4.195  (0 s)
+
+attenuation_pysr  (columns: ['cos_sza', 'f107_at_mars', 'freq_mhz'])
+  fold 0: MAE 4.410  (0 s)
+  fold 1: MAE 3.050  (0 s)
+  fold 2: MAE 3.985  (0 s)
+  fold 3: MAE 3.644  (0 s)
+  fold 4: MAE 3.696  (0 s)
+  fold 5: MAE 3.415  (0 s)
+  fold 6: MAE 4.111  (0 s)
+  fold 7: MAE 3.280  (0 s)
+  fold 8: MAE 3.460  (0 s)
+  fold 9: MAE 4.121  (0 s)
+
+attenuation_free  (columns: ['cos_sza', 'f107_at_mars', 'freq_mhz'])
+  fold 0: MAE 4.713  (1 s)
+  fold 1: MAE 3.089  (1 s)
+  fold 2: MAE 3.968  (1 s)
+  fold 3: MAE 3.707  (1 s)
+  fold 4: MAE 3.763  (2 s)
+  fold 5: MAE 3.421  (1 s)
+  fold 6: MAE 4.106  (1 s)
+  fold 7: MAE 3.271  (1 s)
+  fold 8: MAE 3.474  (1 s)
+  fold 9: MAE 4.170  (1 s)
+
+attenuation_chapman  (columns: ['cos_sza', 'f107_at_mars', 'freq_mhz'])
+  fold 0: MAE 3.308  (0 s)
+  fold 1: MAE 3.356  (0 s)
+  fold 2: MAE 4.046  (0 s)
+  fold 3: MAE 3.824  (0 s)
+  fold 4: MAE 3.905  (0 s)
+  fold 5: MAE 3.744  (0 s)
+  fold 6: MAE 4.202  (0 s)
+  fold 7: MAE 3.346  (0 s)
+  fold 8: MAE 3.624  (0 s)
+  fold 9: MAE 4.159  (0 s)
+
+MAE per fold [dB]
+model  constant  linear   GBM  attenuation_c7  attenuation_pysr  attenuation_free  attenuation_chapman
+fold                                                                                                  
+0          3.14    4.11  4.36            3.86              4.41              4.71                 3.31
+1          4.92    3.10  4.05            3.22              3.05              3.09                 3.36
+2          4.85    3.97  4.25            3.95              3.98              3.97                 4.05
+3          3.81    3.75  3.80            3.80              3.64              3.71                 3.82
+4          4.09    3.77  4.12            3.85              3.70              3.76                 3.91
+5          4.19    3.40  3.94            3.43              3.41              3.42                 3.74
+6          5.05    4.61  5.06            4.09              4.11              4.11                 4.20
+7          4.08    3.20  3.24            3.26              3.28              3.27                 3.35
+8          5.46    3.54  4.06            3.54              3.46              3.47                 3.62
+9          4.77    4.19  4.36            4.20              4.12              4.17                 4.16
+
+Mean MAE over the folds [dB]
+                      mae  mae_freq_mhz=3  mae_freq_mhz=4  mae_freq_mhz=5  mae_freq_mhz=1.8
+model                                                                                      
+constant             4.44            4.42            4.60            4.04             19.43
+linear               3.76            3.84            3.77            3.55             19.01
+GBM                  4.12            4.20            4.15            3.96             19.00
+attenuation_c7       3.72            3.74            3.75            3.49             19.00
+attenuation_pysr     3.72            3.69            3.76            3.50             19.00
+attenuation_free     3.77            3.68            3.81            3.56             19.00
+attenuation_chapman  3.75            3.92            3.75            3.48             20.03
+saved: results/attenuation/validate.csv
+
+Formula constants fitted in the folds
+                                 mean    std     min     max
+model               parameter                               
+attenuation_c7      a          64.596  4.198  59.982  75.453
+                    b          10.531  0.351  10.121  11.204
+attenuation_pysr    k          17.212  1.595  15.716  21.568
+                    s           0.168  0.020   0.114   0.183
+attenuation_free    k          17.738  2.461  16.304  24.572
+                    m           0.617  0.118   0.415   0.781
+                    s           0.170  0.021   0.147   0.209
+                    p           1.057  0.179   0.931   1.518
+                    n           1.176  0.073   1.087   1.320
+attenuation_chapman k          13.590  0.726  12.627  15.110
+                    s           0.059  0.022  -0.002   0.074
+saved: results/attenuation/validate_params.csv
+
+=== 2026-11-15 13:32  attenuation  exponents ===
+Day: ionospheric attenuation law (echo expected at night - measured echo)
+Formula: attenuation_free  (k * (f107_at_mars/40)^m * pos(cos_sza + s)^p / (freq_mhz/4)^n)
+Rows: 2,424,806, orbits: 429, per frequency: {1.8: 6464, 3.0: 194416, 4.0: 1268368, 5.0: 955558}
+Bootstrap: 40 orbit resamplings in 2.3 minutes
+
+Attenuation law parameters (95% CI from the orbit bootstrap)
+   estimate  ci95_low  ci95_high  without_1.8MHz  fold_min  fold_max  theory theory_excluded
+k    17.396    15.185     20.453          17.367    16.304    24.572     NaN                
+m     0.647     0.169      1.181           0.654     0.415     0.781     0.5              no
+s     0.160     0.112      0.241           0.159     0.147     0.209     NaN                
+p     1.005     0.853      1.396           0.998     0.931     1.518     0.5             yes
+n     1.125     0.985      1.244           1.143     1.087     1.320     2.0             yes
+saved: results/attenuation/exponents.csv
+saved: results/attenuation/exponents_bootstrap.csv
+Attenuation starts at cos χ = -0.160, i.e. Sun elevation -9.2° at the surface

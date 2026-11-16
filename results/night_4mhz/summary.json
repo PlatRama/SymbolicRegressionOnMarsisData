@@ -1,0 +1,82 @@
+{
+  "anomalies": {
+    "formula": "radar_4mhz_f107",
+    "threshold_dB": -8.0,
+    "anomalous_orbits": 47,
+    "total_orbits": 339,
+    "pct_rows": 13.698088,
+    "episodes": 10,
+    "echo_difference_dB": -13.175406,
+    "noise_difference_dB": -1.832214,
+    "spearman_residual_noise": 0.437245,
+    "formula_constants": {
+      "a0": 84.855255,
+      "k_h": -25.056391,
+      "k_r": -2.968801,
+      "k_dip": -0.186296,
+      "k_F": -0.042156
+    }
+  },
+  "search": {
+    "test_fold": 9,
+    "best_on_test": {
+      "complexity": 20,
+      "mae_test": 1.863992,
+      "equation": "(((157.13922 / log10_altitude_km) / (sqrt(roughness_over_lambda) + (log10_altitude_km - 0.62152094))) - (sqrt(f107_at_mars) - sqrt(dipole_dev))) - (dipole_dev * 0.36219075)"
+    },
+    "baseline_mae_test": {
+      "constant": 3.642832,
+      "linear": 3.86023,
+      "GBM": 3.603914
+    },
+    "copied_from": "results_ita/night_4mhz (PySR not rerun)"
+  },
+  "rows": 866829,
+  "orbits": 339,
+  "rows_per_frequency": {
+    "4.0": 866829
+  },
+  "validate": {
+    "mean_mae": {
+      "constant": 5.492802,
+      "linear": 5.163424,
+      "GBM": 5.665965,
+      "night_4mhz_c5": 5.125434,
+      "night_4mhz_c6": 4.876036,
+      "night_4mhz_c7": 4.777061,
+      "night_4mhz_c10": 4.610133,
+      "radar_4mhz_f107": 4.487732
+    },
+    "mean_constants": {
+      "night_4mhz_c5:a": 54.051719,
+      "night_4mhz_c6:a": 299.807983,
+      "night_4mhz_c7:a": 161.188206,
+      "night_4mhz_c10:a": 194.846991,
+      "radar_4mhz_f107:a0": 79.081343,
+      "radar_4mhz_f107:k_h": -22.500239,
+      "radar_4mhz_f107:k_r": -3.091401,
+      "radar_4mhz_f107:k_dip": -0.164531,
+      "radar_4mhz_f107:k_F": -0.087001
+    }
+  },
+  "residuals": {
+    "formula": "radar_4mhz_f107",
+    "mae": 4.420995,
+    "by_period": {
+      "night": {
+        "bias_dB": -1.170746,
+        "mae_dB": 4.420995
+      }
+    },
+    "variance_between_orbits": 30.23287,
+    "variance_within_orbits": 8.372041,
+    "orbits_below_threshold": 45,
+    "top_correlations": {
+      "monopole_tilt": 0.12961,
+      "dipole_dev": 0.095086,
+      "year": -0.073662,
+      "roughness_over_lambda": 0.067981,
+      "latitude": 0.055645
+    }
+  }
+}

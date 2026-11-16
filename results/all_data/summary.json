@@ -1,0 +1,52 @@
+{
+  "search": {
+    "test_fold": 9,
+    "best_on_test": {
+      "complexity": 8,
+      "mae_test": 4.432978,
+      "equation": "16.07071 - exp((freq_mhz * cos_sza) + 0.49149993)"
+    },
+    "baseline_mae_test": {
+      "constant": 5.725011,
+      "linear": 4.523573,
+      "GBM": 4.197153
+    },
+    "copied_from": "results_ita/all_data (PySR not rerun)"
+  },
+  "rows": 4230657,
+  "orbits": 727,
+  "rows_per_frequency": {
+    "1.8": 28706,
+    "3.0": 873412,
+    "4.0": 2083317,
+    "5.0": 1245222
+  },
+  "residuals": {
+    "formula": "all_data_c7",
+    "mae": 4.992147,
+    "by_period": {
+      "night": {
+        "bias_dB": -1.913912,
+        "mae_dB": 5.547486
+      },
+      "twilight": {
+        "bias_dB": 2.706943,
+        "mae_dB": 4.959279
+      },
+      "day": {
+        "bias_dB": 0.160759,
+        "mae_dB": 4.410512
+      }
+    },
+    "variance_between_orbits": 23.077399,
+    "variance_within_orbits": 17.186356,
+    "orbits_below_threshold": 63,
+    "top_correlations": {
+      "f107_at_mars": -0.294986,
+      "F10_7_index": -0.260613,
+      "roughness_over_lambda": -0.161349,
+      "sin_ls": -0.143646,
+      "dipole_dev": -0.142451
+    }
+  }
+}

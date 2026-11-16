@@ -1,0 +1,73 @@
+{
+  "validate": {
+    "mean_mae": {
+      "constant": 5.745978,
+      "linear": 4.027985,
+      "GBM": 3.517473,
+      "all_data_c7": 4.412655,
+      "radar_night_resonance": 4.310392,
+      "combined": 3.428772,
+      "combined_free": 3.488613
+    },
+    "mean_constants": {
+      "all_data_c7:a": -13.862918,
+      "all_data_c7:b": 51.194381,
+      "radar_night_resonance:g0": 69.494662,
+      "radar_night_resonance:A": 1.748464,
+      "radar_night_resonance:f0": 3.514154,
+      "radar_night_resonance:k_h": -24.319214,
+      "radar_night_resonance:k_r": -3.919392,
+      "radar_night_resonance:k_dip": -0.126582,
+      "radar_night_resonance:k_F": 0.001584,
+      "combined:g0": 66.942348,
+      "combined:A": 1.306094,
+      "combined:f0": 3.572646,
+      "combined:k_h": -20.43741,
+      "combined:k_r": -2.028069,
+      "combined:k_dip": -0.137486,
+      "combined:k_F": -0.04101,
+      "combined:k": 19.561292,
+      "combined:s": 0.151305,
+      "combined_free:g0": 67.605847,
+      "combined_free:A": 1.271806,
+      "combined_free:f0": 3.575155,
+      "combined_free:k_h": -20.461345,
+      "combined_free:k_r": -1.942809,
+      "combined_free:k_dip": -0.136505,
+      "combined_free:k_F": -0.04882,
+      "combined_free:k": 19.604858,
+      "combined_free:m": 0.520621,
+      "combined_free:s": 0.147577,
+      "combined_free:p": 1.010608,
+      "combined_free:n": 0.869664
+    }
+  },
+  "residuals": {
+    "formula": "combined",
+    "mae": 3.423903,
+    "by_period": {
+      "night": {
+        "bias_dB": -0.213526,
+        "mae_dB": 3.055627
+      },
+      "twilight": {
+        "bias_dB": 0.032254,
+        "mae_dB": 3.22987
+      },
+      "day": {
+        "bias_dB": 0.042757,
+        "mae_dB": 3.818229
+      }
+    },
+    "variance_between_orbits": 8.368317,
+    "variance_within_orbits": 11.430792,
+    "orbits_below_threshold": 10,
+    "top_correlations": {
+      "latitude": 0.179654,
+      "year": -0.16055,
+      "radial_magnetic_field": -0.083066,
+      "msd_au": -0.082031,
+      "longitude": 0.073707
+    }
+  }
+}

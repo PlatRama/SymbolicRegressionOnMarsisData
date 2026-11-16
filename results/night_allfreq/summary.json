@@ -1,0 +1,60 @@
+{
+  "search": {
+    "test_fold": 9,
+    "best_on_test": {
+      "complexity": 15,
+      "mae_test": 1.919733,
+      "equation": "((log10_altitude_km * (-18.59873 - log10(roughness_over_lambda))) + 60.557686) - (7.6344185 / (square(freq_mhz) + -17.416695))"
+    },
+    "baseline_mae_test": {
+      "constant": 4.19339,
+      "linear": 3.908317,
+      "GBM": 2.31355
+    },
+    "copied_from": "results_ita/night_allfreq (PySR not rerun)"
+  },
+  "rows": 1647781,
+  "orbits": 297,
+  "rows_per_frequency": {
+    "1.8": 22242,
+    "3.0": 612955,
+    "4.0": 748090,
+    "5.0": 264494
+  },
+  "validate": {
+    "mean_mae": {
+      "constant": 4.575524,
+      "linear": 3.808073,
+      "GBM": 3.641793,
+      "night_allfreq_c14": 3.330838,
+      "night_allfreq_offset": 3.273016,
+      "radar_night_resonance": 2.962837,
+      "radar_night": 2.983682
+    },
+    "mean_constants": {
+      "night_allfreq_c14:a": 7.497442,
+      "night_allfreq_c14:b": 1.179511,
+      "night_allfreq_c14:f0": 3.577722,
+      "night_allfreq_offset:a": 8.027169,
+      "night_allfreq_offset:G[1.8]": -2.357334,
+      "night_allfreq_offset:G[3]": 0.509931,
+      "night_allfreq_offset:G[4]": 3.377109,
+      "night_allfreq_offset:G[5]": -3.43215,
+      "radar_night_resonance:g0": 76.144543,
+      "radar_night_resonance:A": 1.422594,
+      "radar_night_resonance:f0": 3.558189,
+      "radar_night_resonance:k_h": -24.499342,
+      "radar_night_resonance:k_r": -2.905239,
+      "radar_night_resonance:k_dip": -0.180795,
+      "radar_night_resonance:k_F": -0.041393,
+      "radar_night:k_h": -24.594858,
+      "radar_night:k_r": -2.907303,
+      "radar_night:k_dip": -0.180026,
+      "radar_night:k_F": -0.041149,
+      "radar_night:G[1.8]": 77.480964,
+      "radar_night:G[3]": 80.946148,
+      "radar_night:G[4]": 83.667752,
+      "radar_night:G[5]": 77.019139
+    }
+  }
+}

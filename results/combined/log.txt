@@ -1,0 +1,208 @@
+
+=== 2026-11-15 13:35  combined  validate ===
+Whole dataset without anomalous orbits: night law - daytime attenuation
+Rows: 3,956,701, folds: 10 (chronological)
+
+constant  (columns: ['log10_altitude_km', 'roughness_over_lambda', 'slope', 'f107_at_mars', 'cos_sza', 'sin_ls', 'cos_ls', 'dipole_dev', 'freq_mhz'])
+  fold 0: MAE 7.608  (0 s)
+  fold 1: MAE 6.514  (0 s)
+  fold 2: MAE 4.903  (0 s)
+  fold 3: MAE 4.932  (0 s)
+  fold 4: MAE 5.128  (0 s)
+  fold 5: MAE 6.029  (0 s)
+  fold 6: MAE 4.596  (0 s)
+  fold 7: MAE 5.825  (0 s)
+  fold 8: MAE 5.806  (0 s)
+  fold 9: MAE 6.120  (0 s)
+
+linear  (columns: ['log10_altitude_km', 'roughness_over_lambda', 'slope', 'f107_at_mars', 'cos_sza', 'sin_ls', 'cos_ls', 'dipole_dev', 'freq_mhz'])
+  fold 0: MAE 3.150  (0 s)
+  fold 1: MAE 3.901  (0 s)
+  fold 2: MAE 4.107  (0 s)
+  fold 3: MAE 4.013  (0 s)
+  fold 4: MAE 3.891  (0 s)
+  fold 5: MAE 4.703  (0 s)
+  fold 6: MAE 4.062  (0 s)
+  fold 7: MAE 3.999  (0 s)
+  fold 8: MAE 3.594  (0 s)
+  fold 9: MAE 4.861  (0 s)
+
+GBM  (columns: ['log10_altitude_km', 'roughness_over_lambda', 'slope', 'f107_at_mars', 'cos_sza', 'sin_ls', 'cos_ls', 'dipole_dev', 'freq_mhz'])
+  fold 0: MAE 2.362  (4 s)
+  fold 1: MAE 3.657  (4 s)
+  fold 2: MAE 4.198  (4 s)
+  fold 3: MAE 3.897  (4 s)
+  fold 4: MAE 3.372  (4 s)
+  fold 5: MAE 4.017  (4 s)
+  fold 6: MAE 3.355  (4 s)
+  fold 7: MAE 3.474  (4 s)
+  fold 8: MAE 2.742  (5 s)
+  fold 9: MAE 4.100  (4 s)
+
+all_data_c7  (columns: ['cos_sza', 'log10_altitude_km'])
+  fold 0: MAE 3.508  (0 s)
+  fold 1: MAE 4.298  (0 s)
+  fold 2: MAE 4.652  (0 s)
+  fold 3: MAE 4.334  (0 s)
+  fold 4: MAE 4.030  (0 s)
+  fold 5: MAE 4.571  (0 s)
+  fold 6: MAE 5.028  (0 s)
+  fold 7: MAE 4.661  (0 s)
+  fold 8: MAE 4.277  (0 s)
+  fold 9: MAE 4.769  (0 s)
+
+radar_night_resonance  (columns: ['dipole_dev', 'f107_at_mars', 'freq_mhz', 'log10_altitude_km', 'roughness_over_lambda'])
+  fold 0: MAE 4.045  (0 s)
+  fold 1: MAE 5.713  (0 s)
+  fold 2: MAE 3.950  (0 s)
+  fold 3: MAE 4.391  (0 s)
+  fold 4: MAE 3.863  (0 s)
+  fold 5: MAE 3.966  (0 s)
+  fold 6: MAE 3.428  (0 s)
+  fold 7: MAE 3.702  (0 s)
+  fold 8: MAE 4.073  (0 s)
+  fold 9: MAE 5.972  (0 s)
+
+combined  (columns: ['cos_sza', 'dipole_dev', 'f107_at_mars', 'freq_mhz', 'log10_altitude_km', 'roughness_over_lambda'])
+  fold 0: MAE 3.703  (0 s)
+  fold 1: MAE 3.628  (0 s)
+  fold 2: MAE 3.570  (0 s)
+  fold 3: MAE 3.432  (0 s)
+  fold 4: MAE 3.212  (0 s)
+  fold 5: MAE 3.641  (0 s)
+  fold 6: MAE 3.298  (0 s)
+  fold 7: MAE 3.250  (0 s)
+  fold 8: MAE 2.408  (0 s)
+  fold 9: MAE 4.146  (0 s)
+
+combined_free  (columns: ['cos_sza', 'dipole_dev', 'f107_at_mars', 'freq_mhz', 'log10_altitude_km', 'roughness_over_lambda'])
+  fold 0: MAE 4.125  (3 s)
+  fold 1: MAE 3.642  (1 s)
+  fold 2: MAE 3.658  (1 s)
+  fold 3: MAE 3.440  (1 s)
+  fold 4: MAE 3.215  (1 s)
+  fold 5: MAE 3.677  (1 s)
+  fold 6: MAE 3.274  (1 s)
+  fold 7: MAE 3.244  (2 s)
+  fold 8: MAE 2.376  (1 s)
+  fold 9: MAE 4.235  (1 s)
+
+MAE per fold [dB]
+model  constant  linear   GBM  all_data_c7  radar_night_resonance  combined  combined_free
+fold                                                                                      
+0          7.61    3.15  2.36         3.51                   4.05      3.70           4.12
+1          6.51    3.90  3.66         4.30                   5.71      3.63           3.64
+2          4.90    4.11  4.20         4.65                   3.95      3.57           3.66
+3          4.93    4.01  3.90         4.33                   4.39      3.43           3.44
+4          5.13    3.89  3.37         4.03                   3.86      3.21           3.22
+5          6.03    4.70  4.02         4.57                   3.97      3.64           3.68
+6          4.60    4.06  3.36         5.03                   3.43      3.30           3.27
+7          5.82    4.00  3.47         4.66                   3.70      3.25           3.24
+8          5.81    3.59  2.74         4.28                   4.07      2.41           2.38
+9          6.12    4.86  4.10         4.77                   5.97      4.15           4.24
+
+Mean MAE over the folds [dB]
+                        mae  mae_freq_mhz=1.8  mae_freq_mhz=3  mae_freq_mhz=4  mae_freq_mhz=5
+model                                                                                        
+constant               5.75              6.53            4.54            5.76            6.13
+linear                 4.03             11.48            4.14            4.10            3.47
+GBM                    3.52              6.50            4.06            3.40            3.00
+all_data_c7            4.41              8.31            4.39            4.32            4.47
+radar_night_resonance  4.31              7.41            3.65            4.56            3.90
+combined               3.43              6.52            3.52            3.45            3.04
+combined_free          3.49              6.55            3.52            3.52            3.11
+saved: results/combined/validate.csv
+
+Formula constants fitted in the folds
+                                   mean    std     min     max
+model                 parameter                               
+all_data_c7           a         -13.863  0.533 -15.093 -13.364
+                      b          51.194  1.501  49.791  54.741
+radar_night_resonance g0         69.495  4.177  63.195  76.335
+                      A           1.748  0.054   1.650   1.822
+                      f0          3.514  0.007   3.503   3.524
+                      k_h       -24.319  1.462 -26.765 -21.989
+                      k_r        -3.919  0.221  -4.158  -3.397
+                      k_dip      -0.127  0.013  -0.154  -0.114
+                      k_F         0.002  0.019  -0.019   0.046
+combined              g0         66.942  3.344  62.988  74.948
+                      A           1.306  0.031   1.263   1.371
+                      f0          3.573  0.004   3.566   3.578
+                      k_h       -20.437  1.204 -23.284 -19.070
+                      k_r        -2.028  0.097  -2.216  -1.912
+                      k_dip      -0.137  0.007  -0.153  -0.127
+                      k_F        -0.041  0.006  -0.050  -0.031
+                      k          19.561  1.657  17.834  24.023
+                      s           0.151  0.015   0.114   0.169
+combined_free         g0         67.606  3.371  63.756  75.469
+                      A           1.272  0.050   1.212   1.343
+                      f0          3.575  0.004   3.568   3.582
+                      k_h       -20.461  1.308 -23.532 -19.094
+                      k_r        -1.943  0.101  -2.097  -1.800
+                      k_dip      -0.137  0.007  -0.153  -0.126
+                      k_F        -0.049  0.004  -0.054  -0.038
+                      k          19.605  2.766  18.143  27.421
+                      m           0.521  0.216   0.163   0.990
+                      s           0.148  0.026   0.113   0.205
+                      p           1.011  0.178   0.858   1.483
+                      n           0.870  0.158   0.694   1.188
+saved: results/combined/validate_params.csv
+
+=== 2026-11-15 13:37  combined  residuals ===
+Whole dataset without anomalous orbits: night law - daytime attenuation
+Formula: combined  (g0 + A/(freq_mhz - f0)^2 + k_h*log10_altitude_km + k_r*log10(roughness_over_lambda) + k_dip*dipole_dev + k_F*f107_at_mars - k*(f107_at_mars/40)*pos(cos_sza + s)/(freq_mhz/4))
+Out-of-fold residuals: MAE 3.42 dB, mean -0.07, median 0.13, skewness -0.08
+Quantiles: 1%: -11.3, 5%: -7.3, 25%: -2.9, 50%: 0.1, 75%: 2.6, 95%: 7.1, 99%: 10.8
+
+Residuals by period (bias = mean; negative = formula overestimates)
+             rows  bias_dB  mae_dB
+period                            
+night     1647781    -0.21    3.06
+twilight   516061     0.03    3.23
+day       1792859     0.04    3.82
+
+Residuals by period and frequency
+                     rows  bias_dB  mae_dB
+period   freq_mhz                         
+night    1.8        22242     0.80    2.43
+         3.0       612955    -0.08    3.58
+         4.0       748090    -0.34    2.95
+         5.0       264494    -0.24    2.19
+twilight 3.0       142768    -0.50    3.80
+         4.0       242091     0.12    3.25
+         5.0       131202     0.45    2.57
+day      1.8         6464    -0.13   19.00
+         3.0         1238     2.86    3.02
+         4.0       968968     0.12    3.87
+         5.0       816189    -0.06    3.63
+saved: results/combined/residuals_by_group.csv
+
+Residual variance 19.8 = between orbits 8.4 + within orbits 11.4
+Orbits with mean residual < -8.0 dB: 10 of 680 (1.5% of rows); at night (mean Sun < -10°): 4
+saved: results/combined/residuals_by_orbit.csv
+
+Spearman correlation between residual and variable
+                           spearman
+latitude                      0.180
+year                         -0.161
+radial_magnetic_field        -0.083
+msd_au                       -0.082
+longitude                     0.074
+local_true_solar_time         0.073
+cos_ls                       -0.071
+F10_7_index                  -0.054
+monopole_tilt                 0.051
+sin_ls                       -0.044
+cos_sza                       0.042
+Sun_elevation_angle           0.042
+roughness_over_lambda         0.037
+slope                         0.032
+dipole_dev                    0.032
+f107_at_mars                 -0.030
+log10_altitude_km             0.018
+band                          0.015
+freq_mhz                      0.008
+total_magnetic_field         -0.006
+tangential_magnetic_field    -0.004
+saved: results/combined/residuals_hist.csv
+saved: results/combined/residuals_by_sun.csv

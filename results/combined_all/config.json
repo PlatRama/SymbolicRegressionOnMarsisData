@@ -1,0 +1,84 @@
+{
+  "name": "combined_all",
+  "description": "Whole dataset including anomalous orbits",
+  "target": "peak_corrected_echo_power",
+  "freqs": "all",
+  "period": "all",
+  "sun_margin": 0.0,
+  "cos_sza_min": -0.2,
+  "exclude_anomalies_of": null,
+  "features": [
+    "log10_altitude_km",
+    "roughness_over_lambda",
+    "slope",
+    "f107_at_mars",
+    "cos_sza",
+    "sin_ls",
+    "cos_ls",
+    "dipole_dev",
+    "freq_mhz"
+  ],
+  "n_folds": 10,
+  "fold_scheme": "chronological",
+  "search_test_fold": 9,
+  "pysr_sample": 10000,
+  "pysr_balance_by": null,
+  "pysr_iterations": 200,
+  "pysr_maxsize": 25,
+  "pysr_seeds": [
+    0
+  ],
+  "pysr_timeout": 0,
+  "pysr_binary": [
+    "+",
+    "-",
+    "*",
+    "/"
+  ],
+  "pysr_unary": [
+    "log10",
+    "sqrt",
+    "square",
+    "exp"
+  ],
+  "pysr_nested": {
+    "log10": {
+      "log10": 0,
+      "exp": 0
+    },
+    "exp": {
+      "exp": 0,
+      "log10": 0
+    }
+  },
+  "pysr_constraints": null,
+  "formulas": [
+    "all_data_c7",
+    "radar_night_resonance",
+    "combined",
+    "combined_free"
+  ],
+  "baselines": [
+    "constant",
+    "linear",
+    "GBM"
+  ],
+  "train_sample": 500000,
+  "group_by": "freq_mhz",
+  "residual_model": "combined",
+  "anomaly_formula": null,
+  "anomaly_threshold": -8.0,
+  "anomaly_max_iter": 10,
+  "anomaly_thresholds": [
+    -6,
+    -8,
+    -10,
+    -12
+  ],
+  "reference_formula": null,
+  "reference_experiment": null,
+  "exponent_formula": null,
+  "bootstrap": 40,
+  "bootstrap_sample": 150000,
+  "theory": {}
+}

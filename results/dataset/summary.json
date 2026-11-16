@@ -1,0 +1,23 @@
+{
+  "rows": 4230657,
+  "columns": 25,
+  "instants": 2328163,
+  "instants_with_two_rows": 1902494,
+  "years": [
+    2005.929813,
+    2021.07247
+  ],
+  "orbits": 727,
+  "latitude": [
+    -87.015215,
+    -68.348107
+  ],
+  "rows_per_frequency": {
+    "1.8": 28706,
+    "3.0": 873412,
+    "4.0": 2083317,
+    "5.0": 1245222
+  },
+  "mean_target_dB": 14.584936,
+  "features_ok": true
+}

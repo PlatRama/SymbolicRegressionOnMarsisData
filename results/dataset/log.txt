@@ -1,0 +1,158 @@
+
+=== 2026-11-15 12:40  dataset  prepare_data ===
+Parquet cache already present: C:\Users\plato\PycharmProjects\XAIProjectWork\data\marsis.parquet
+Raw dataset: 4,230,657 rows, 25 columns
+
+Raw columns
+                               dtype  missing  pct_missing  distinct           min           max
+altitude                     float64        0         0.00   2328163  2.806211e+05  9.123892e+05
+band                         float64        0         0.00         2  1.000000e+00  2.000000e+00
+dipole_tilt                  float64        0         0.00   2328162  2.455000e+01  1.461000e+02
+ephemeris_time               float64        0         0.00   2328163  1.871307e+08  6.649966e+08
+F10_7_index                  float64        0         0.00       353  6.510000e+01  2.533000e+02
+frequency                    float64        0         0.00         4  1.800000e+06  5.000000e+06
+latitude                     float64        0         0.00   2328163 -8.702000e+01 -6.835000e+01
+local_true_solar_time        float64        0         0.00     69619  0.000000e+00  2.400000e+01
+longitude                    float64        0         0.00   2328163  0.000000e+00  3.600000e+02
+Mars_Sun_distance            float64        0         0.00   2328163  2.066664e+08  2.492395e+08
+median_corrected_echo_power  float64        0         0.00   4230657 -3.417000e+01  1.713000e+01
+monopole_tilt                float64        0         0.00   2320719  0.000000e+00  1.253100e+02
+orbit_number                 float64        0         0.00       727  2.438000e+03  2.157800e+04
+peak_corrected_echo_power    float64        0         0.00   4230657 -1.875000e+01  4.106000e+01
+peak_distorted_echo_power    float64        0         0.00    936106 -2.276000e+01  3.959000e+01
+peak_simulated_echo_power    float64  2903361        68.63    668448 -1.245000e+02 -7.548000e+01
+radial_magnetic_field        float64        0         0.00     21579 -3.188800e+02  1.854500e+02
+roughness                    float64        0         0.00     92349  2.600000e-01  1.853900e+02
+slope                        float64        0         0.00     92349  0.000000e+00  1.522000e+01
+solar_longitude              float64        0         0.00   2328163  9.300000e-01  3.599100e+02
+Sun_elevation_angle          float64        0         0.00   2328163 -4.598000e+01  3.445000e+01
+tangential_magnetic_field    float64        0         0.00     21579  4.000000e-02  3.234200e+02
+total_magnetic_field         float64        0         0.00     21579  1.170000e+00  3.247900e+02
+x_coordinate                 float64        0         0.00   2328163 -8.617007e+05  7.655144e+05
+y_coordinate                 float64        0         0.00   2328163 -1.234837e+06  7.647140e+05
+saved: results/dataset/columns.csv
+
+Rows per band and frequency
+frequency MHz    1.8     3.0      4.0     5.0
+band                                         
+1.0             3232   40950  1127684  748782
+2.0            25474  832462   955633  496440
+
+Distinct instants: 2,328,163 (1,902,494 with two rows: both bands transmit together)
+Period: 2005.93 - 2021.07
+Orbits: 727 (2438 to 21578)
+Latitude: -87.0° to -68.3° (south pole only)
+Target (peak_corrected_echo_power): mean 14.58 dB, range -18.8 to 41.1 dB
+
+Physical features added: 14
+  sin_ls                 [-]  Martian season; sin/cos avoid the jump at Ls = 360°
+  cos_ls                 [-]  Martian season
+  altitude_km            [km]  spacecraft altitude
+  log10_altitude_km      [log10 km]  radar law: specular echo P ~ 1/h^2, i.e. -20 log10(h) dB
+  freq_mhz               [MHz]  radar frequency
+  wavelength_m           [m]  wavelength c / f
+  roughness_over_lambda  [-]  roughness relative to the wavelength (Rayleigh criterion)
+  is_day                 [bool]  Sun above the horizon at the surface
+  cos_sza                [-]  cosine of the solar zenith angle; negative at night
+  msd_au                 [AU]  Mars-Sun distance
+  f107_at_mars           [sfu]  F10.7 solar flux scaled to Mars: F10.7 / d^2
+  dipole_dev             [deg]  deviation of the dipole tilt from 90°
+  year                   [year]  measurement date (description only, never an input)
+  snr                    [dB]  peak - median power; derived from the target, never an input
+
+Feature values against the expected ranges
+                          mean      std      min      max  expected_min  expected_max    ok
+sin_ls                   0.082    0.743   -1.000    1.000         -1.00          1.00  True
+cos_ls                   0.193    0.635   -1.000    1.000         -1.00          1.00  True
+altitude_km            454.003  139.853  280.621  912.389        200.00       1000.00  True
+log10_altitude_km        2.639    0.123    2.448    2.960          2.30          3.00  True
+freq_mhz                 4.073    0.727    1.800    5.000          1.80          5.00  True
+wavelength_m            76.315   15.813   59.958  166.551         59.00        167.00  True
+roughness_over_lambda    0.096    0.170    0.002    2.885          0.00          5.00  True
+cos_sza                 -0.064    0.281   -0.719    0.566         -1.00          1.00  True
+msd_au                   1.537    0.098    1.381    1.666          1.38          1.67  True
+f107_at_mars            41.286   10.985   25.812   91.256         15.00        150.00  True
+dipole_dev               3.536    7.827    0.000   65.449          0.00         90.00  True
+saved: results/dataset/feature_check.csv
+
+All features are within the expected ranges.
+Columns never used as inputs (derived from the target): ['snr', 'median_corrected_echo_power', 'peak_distorted_echo_power', 'peak_simulated_echo_power']
+
+=== 2026-11-16 14:47  dataset  prepare_data ===
+Parquet cache already present: C:\Users\plato\PycharmProjects\XAIProjectWork\data\marsis.parquet
+Raw dataset: 4,230,657 rows, 25 columns
+
+Raw columns
+                               dtype  missing  pct_missing  distinct           min           max
+altitude                     float64        0         0.00   2328163  2.806211e+05  9.123892e+05
+band                         float64        0         0.00         2  1.000000e+00  2.000000e+00
+dipole_tilt                  float64        0         0.00   2328162  2.455000e+01  1.461000e+02
+ephemeris_time               float64        0         0.00   2328163  1.871307e+08  6.649966e+08
+F10_7_index                  float64        0         0.00       353  6.510000e+01  2.533000e+02
+frequency                    float64        0         0.00         4  1.800000e+06  5.000000e+06
+latitude                     float64        0         0.00   2328163 -8.702000e+01 -6.835000e+01
+local_true_solar_time        float64        0         0.00     69619  0.000000e+00  2.400000e+01
+longitude                    float64        0         0.00   2328163  0.000000e+00  3.600000e+02
+Mars_Sun_distance            float64        0         0.00   2328163  2.066664e+08  2.492395e+08
+median_corrected_echo_power  float64        0         0.00   4230657 -3.417000e+01  1.713000e+01
+monopole_tilt                float64        0         0.00   2320719  0.000000e+00  1.253100e+02
+orbit_number                 float64        0         0.00       727  2.438000e+03  2.157800e+04
+peak_corrected_echo_power    float64        0         0.00   4230657 -1.875000e+01  4.106000e+01
+peak_distorted_echo_power    float64        0         0.00    936106 -2.276000e+01  3.959000e+01
+peak_simulated_echo_power    float64  2903361        68.63    668448 -1.245000e+02 -7.548000e+01
+radial_magnetic_field        float64        0         0.00     21579 -3.188800e+02  1.854500e+02
+roughness                    float64        0         0.00     92349  2.600000e-01  1.853900e+02
+slope                        float64        0         0.00     92349  0.000000e+00  1.522000e+01
+solar_longitude              float64        0         0.00   2328163  9.300000e-01  3.599100e+02
+Sun_elevation_angle          float64        0         0.00   2328163 -4.598000e+01  3.445000e+01
+tangential_magnetic_field    float64        0         0.00     21579  4.000000e-02  3.234200e+02
+total_magnetic_field         float64        0         0.00     21579  1.170000e+00  3.247900e+02
+x_coordinate                 float64        0         0.00   2328163 -8.617007e+05  7.655144e+05
+y_coordinate                 float64        0         0.00   2328163 -1.234837e+06  7.647140e+05
+saved: results/dataset/columns.csv
+
+Rows per band and frequency
+frequency MHz    1.8     3.0      4.0     5.0
+band                                         
+1.0             3232   40950  1127684  748782
+2.0            25474  832462   955633  496440
+
+Distinct instants: 2,328,163 (1,902,494 with two rows: both bands transmit together)
+Period: 2005.93 - 2021.07
+Orbits: 727 (2438 to 21578)
+Latitude: -87.0° to -68.3° (south pole only)
+Target (peak_corrected_echo_power): mean 14.58 dB, range -18.8 to 41.1 dB
+
+Physical features added: 14
+  sin_ls                 [-]  Martian season; sin/cos avoid the jump at Ls = 360°
+  cos_ls                 [-]  Martian season
+  altitude_km            [km]  spacecraft altitude
+  log10_altitude_km      [log10 km]  radar law: specular echo P ~ 1/h^2, i.e. -20 log10(h) dB
+  freq_mhz               [MHz]  radar frequency
+  wavelength_m           [m]  wavelength c / f
+  roughness_over_lambda  [-]  roughness relative to the wavelength (Rayleigh criterion)
+  is_day                 [bool]  Sun above the horizon at the surface
+  cos_sza                [-]  cosine of the solar zenith angle; negative at night
+  msd_au                 [AU]  Mars-Sun distance
+  f107_at_mars           [sfu]  F10.7 solar flux scaled to Mars: F10.7 / d^2
+  dipole_dev             [deg]  deviation of the dipole tilt from 90°
+  year                   [year]  measurement date (description only, never an input)
+  snr                    [dB]  peak - median power; derived from the target, never an input
+
+Feature values against the expected ranges
+                          mean      std      min      max  expected_min  expected_max    ok
+sin_ls                   0.082    0.743   -1.000    1.000         -1.00          1.00  True
+cos_ls                   0.193    0.635   -1.000    1.000         -1.00          1.00  True
+altitude_km            454.003  139.853  280.621  912.389        200.00       1000.00  True
+log10_altitude_km        2.639    0.123    2.448    2.960          2.30          3.00  True
+freq_mhz                 4.073    0.727    1.800    5.000          1.80          5.00  True
+wavelength_m            76.315   15.813   59.958  166.551         59.00        167.00  True
+roughness_over_lambda    0.096    0.170    0.002    2.885          0.00          5.00  True
+cos_sza                 -0.064    0.281   -0.719    0.566         -1.00          1.00  True
+msd_au                   1.537    0.098    1.381    1.666          1.38          1.67  True
+f107_at_mars            41.286   10.985   25.812   91.256         15.00        150.00  True
+dipole_dev               3.536    7.827    0.000   65.449          0.00         90.00  True
+saved: results/dataset/feature_check.csv
+
+All features are within the expected ranges.
+Columns never used as inputs (derived from the target): ['snr', 'median_corrected_echo_power', 'peak_distorted_echo_power', 'peak_simulated_echo_power']
